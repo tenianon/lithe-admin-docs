@@ -1,0 +1,48 @@
+/* heading */
+
+.VPDoc .doc-wrapper h1,
+.VPDoc .doc-wrapper h2,
+.VPDoc .doc-wrapper h3,
+.VPDoc .doc-wrapper h4,
+.VPDoc .doc-wrapper h5,
+.VPDoc .doc-wrapper h6 {
+  @apply relative scroll-mt-(--header-height);
+}
+
+.VPDoc .doc-wrapper h1 {
+  @apply text-3xl font-bold;
+}
+
+.VPDoc .doc-wrapper h2 {
+  @apply mt-12 mb-4 border-t pt-6 text-2xl font-bold;
+  @apply border-neutral-150 dark:border-neutral-825;
+}
+
+.VPDoc .doc-wrapper h3 {
+  @apply mt-8 text-xl;
+}
+
+.VPDoc .doc-wrapper h4 {
+  @apply mt-6 text-lg;
+}
+
+.VPDoc .doc-wrapper h5,
+.VPDoc .doc-wrapper h6 {
+  @apply mt-4 text-base;
+}
+
+.VPDoc .doc-wrapper h1:hover .header-anchor,
+.VPDoc .doc-wrapper h2:hover .header-anchor,
+.VPDoc .doc-wrapper h3:hover .header-anchor,
+.VPDoc .doc-wrapper h4:hover .header-anchor,
+.VPDoc .doc-wrapper h5:hover .header-anchor,
+.VPDoc .doc-wrapper h6:hover .header-anchor {
+  @apply opacity-100;
+}
+
+.VPDoc .doc-wrapper .header-anchor {
+  @apply no-underline opacity-0 transition-[opacity,color] select-none;
+  @apply before:content-['#'];
+  @apply text-primary-300 dark:text-primary-400;
+  @apply hover:text-primary-400 dark:hover:text-primary-500;
+}

@@ -1,0 +1,65 @@
+import type { LocaleConfig } from 'vitepress'
+
+export const localeConfig: LocaleConfig[string] = {
+  lang: 'zh',
+  label: '简体中文',
+  themeConfig: {
+    lastUpdatedText: '最后编辑时间',
+    editLinkText: '在 GitHub 上编辑此页',
+    nav: [
+      { text: '指南', link: '/zh/guide/getting-started', activeMatch: '^/zh/guide/' },
+      { text: '指南-旧版', link: '/zh/guide-old/getting-started', activeMatch: '^/zh/guide-old/' },
+      { text: '演示地址', link: 'https://lithe-admin.havenovelgod.com', target: '_blank' },
+    ],
+    sidebar: {
+      '/zh/guide/': {
+        base: '/zh/guide/',
+        items: [
+          {
+            text: '指南',
+            items: [
+              { text: 'Lithe Admin 介绍', link: 'introduction' },
+              { text: '快速开始', link: 'getting-started' },
+            ],
+          },
+          {
+            text: '配置',
+            items: [
+              { text: '配置说明', link: 'configuration' },
+              { text: '路由和菜单', link: 'routing' },
+              { text: '主题定制', link: 'theme' },
+              { text: '布局配置', link: 'layout' },
+            ],
+          },
+        ],
+      },
+      '/zh/guide-old/': {
+        base: '/zh/guide-old/',
+        items: [
+          {
+            text: '指南',
+            items: [
+              { text: 'Lithe Admin 介绍', link: 'lithe-admin-introduce' },
+              { text: '快速开始', link: 'getting-started' },
+              { text: '项目结构', link: 'directory-structure' },
+            ],
+          },
+          {
+            text: '配置',
+            items: [
+              { text: '菜单路由', link: 'menu-route' },
+              { text: '主题', link: 'theme' },
+            ],
+          },
+        ],
+      },
+    },
+    outline: {
+      label: '页面目录',
+    },
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+  },
+}

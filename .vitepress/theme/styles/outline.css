@@ -1,0 +1,12 @@
+/* outline */
+a.target:target-current {
+  @apply text-primary-500 dark:text-primary-450;
+  animation-name: target-current-active;
+  animation-delay: 10ms;
+}
+
+@keyframes target-current-active {
+  to {
+    transform: none;
+  }
+}

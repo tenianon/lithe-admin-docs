@@ -1,0 +1,103 @@
+/* custom block */
+
+.custom-block {
+  @apply my-4 rounded-lg border p-4 text-sm drop-shadow-xs radius-squircle;
+
+  @apply border-neutral-200 dark:border-neutral-750;
+  @apply bg-neutral-150 dark:bg-neutral-800;
+}
+
+.custom-block:not(.details) p:not(.custom-block-title) {
+  @apply my-3 text-neutral-800 dark:text-neutral-325;
+}
+
+.custom-block .custom-block-title {
+  @apply my-0 text-base font-medium;
+  @apply before:mr-1.5 before:inline-block before:size-6 before:mask-contain before:mask-no-repeat before:align-top;
+}
+
+.custom-block .custom-block-title::before {
+  mask-image: var(--svg);
+}
+
+/* info */
+
+.info.custom-block {
+  @apply border-blue-100 bg-blue-50 dark:border-[#004074] dark:bg-[#0D2847];
+}
+
+.info.custom-block .custom-block-title {
+  @apply text-blue-400 dark:text-[#3B9EFF];
+  @apply before:bg-blue-400 dark:before:bg-[#3B9EFF];
+}
+
+.info.custom-block .custom-block-title::before {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M108 84a16 16 0 1 1 16 16a16 16 0 0 1-16-16m128 44A108 108 0 1 1 128 20a108.12 108.12 0 0 1 108 108m-24 0a84 84 0 1 0-84 84a84.09 84.09 0 0 0 84-84m-72 36.68V132a20 20 0 0 0-20-20a12 12 0 0 0-4 23.32V168a20 20 0 0 0 20 20a12 12 0 0 0 4-23.32'/%3E%3C/svg%3E");
+}
+
+/* tip */
+
+.tip.custom-block {
+  @apply border-violet-100 bg-violet-50 dark:border-[#3C2E69] dark:bg-[#291F43];
+}
+
+.tip.custom-block .custom-block-title {
+  @apply text-violet-400 dark:text-[#a48ef3];
+  @apply before:bg-violet-400 dark:before:bg-[#a48ef3];
+}
+
+.tip.custom-block .custom-block-title::before {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M4.072 11H1.5a.5.5 0 0 1 0-1h2.072zM8.25 1C9.216 1 10 1.784 10 2.75v3.5A1.75 1.75 0 0 1 8.25 8h-.941l-1.362 2.724a.5.5 0 0 1-.894 0L3.69 8h-.94A1.75 1.75 0 0 1 1 6.25v-3.5C1 1.784 1.784 1 2.75 1zm2.25 9a.5.5 0 0 1 0 1H6.928l.5-1zM2.75 2a.75.75 0 0 0-.75.75v3.5c0 .414.336.75.75.75H4a.5.5 0 0 1 .447.276L5.5 9.382l1.053-2.106A.5.5 0 0 1 7 7h1.25A.75.75 0 0 0 9 6.25v-3.5A.75.75 0 0 0 8.25 2zm1.807 1.008a.5.5 0 0 1 .403.398c.157.824-.164 1.469-.494 1.881a3 3 0 0 1-.468.466a1.7 1.7 0 0 1-.332.216a.501.501 0 0 1-.422-.902h.001c.015-.01.063-.042.128-.094c.089-.072.204-.176.312-.31q.11-.138.19-.304l-.125.074A.5.5 0 0 1 3 4v-.5a.5.5 0 0 1 .5-.5h.969zm3 0a.5.5 0 0 1 .403.398c.157.824-.164 1.469-.494 1.881a3 3 0 0 1-.468.466a1.7 1.7 0 0 1-.332.216a.501.501 0 0 1-.422-.902h.001c.015-.01.063-.042.128-.094c.089-.072.204-.176.312-.31q.11-.138.19-.304l-.125.074A.5.5 0 0 1 6 4v-.5a.5.5 0 0 1 .5-.5h.969z'/%3E%3C/svg%3E");
+}
+
+/* warning */
+
+.warning.custom-block {
+  @apply border-orange-100 bg-orange-50 dark:border-[#562800] dark:bg-[#331e0b];
+}
+
+.warning.custom-block .custom-block-title {
+  @apply text-orange-400 dark:text-[#e27b2d];
+  @apply before:bg-orange-400 dark:before:bg-[#e27b2d];
+}
+
+.warning.custom-block .custom-block-title::before {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M240.26 186.1L152.81 34.23a28.74 28.74 0 0 0-49.62 0L15.74 186.1a27.45 27.45 0 0 0 0 27.71A28.31 28.31 0 0 0 40.55 228h174.9a28.31 28.31 0 0 0 24.79-14.19a27.45 27.45 0 0 0 .02-27.71m-20.8 15.7a4.46 4.46 0 0 1-4 2.2H40.55a4.46 4.46 0 0 1-4-2.2a3.56 3.56 0 0 1 0-3.73L124 46.2a4.77 4.77 0 0 1 8 0l87.44 151.87a3.56 3.56 0 0 1 .02 3.73M116 136v-32a12 12 0 0 1 24 0v32a12 12 0 0 1-24 0m28 40a16 16 0 1 1-16-16a16 16 0 0 1 16 16'/%3E%3C/svg%3E");
+}
+
+/* danger */
+
+.danger.custom-block {
+  @apply border-red-100 bg-red-50 dark:border-[#611623] dark:bg-[#3b1219];
+}
+
+.danger.custom-block .custom-block-title {
+  @apply text-red-400 dark:text-[#EC5D5E];
+  @apply before:bg-red-400 dark:before:bg-[#EC5D5E];
+}
+
+.danger.custom-block .custom-block-title::before {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M128 20a108 108 0 1 0 108 108A108.12 108.12 0 0 0 128 20m0 192a84 84 0 1 1 84-84a84.09 84.09 0 0 1-84 84m56.49-92.49a12 12 0 0 1-17 17L162 131l-5.51 5.52a12 12 0 0 1-17-17L145 114l-5.52-5.51a12 12 0 0 1 17-17L162 97l5.51-5.52a12 12 0 0 1 17 17L179 114Zm-68 17a12 12 0 0 1-17 0L94 131l-5.51 5.52a12 12 0 0 1-17-17L77 114l-5.52-5.51a12 12 0 0 1 17-17L94 97l5.51-5.52a12 12 0 0 1 17 17L111 114l5.52 5.51a12 12 0 0 1-.03 16.98ZM144 180a16 16 0 1 1-16-16a16 16 0 0 1 16 16'/%3E%3C/svg%3E");
+}
+
+/* children element */
+
+.custom-block p:not(.custom-block-title) {
+  @apply my-3 text-sm leading-5.5;
+}
+
+.custom-block p:not(.custom-block-title) code {
+  @apply text-xs;
+}
+
+.custom-block :last-child {
+  @apply mb-0!;
+}
+
+/* details */
+
+.details.custom-block summary {
+  @apply cursor-pointer transition-colors;
+  @apply text-primary-400;
+  @apply hover:text-primary-500 dark:hover:text-primary-450;
+}

@@ -1,0 +1,19 @@
+/* list */
+
+.VPDoc .doc-wrapper ol,
+.VPDoc .doc-wrapper ul {
+  @apply my-4 pl-4;
+}
+
+.VPDoc .doc-wrapper ol {
+  @apply list-decimal;
+}
+
+.VPDoc .doc-wrapper ul {
+  @apply list-disc;
+}
+
+.VPDoc .doc-wrapper ul li:not(:first-child),
+.VPDoc .doc-wrapper ol li:not(:first-child) {
+  @apply mt-1;
+}

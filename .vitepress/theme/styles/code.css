@@ -1,0 +1,8 @@
+/* code */
+
+.VPDoc .doc-wrapper :not(pre) > code {
+  @apply rounded-sm border px-1 py-px align-text-top text-sm;
+  @apply border-primary-150 dark:border-primary-800;
+  @apply bg-primary-100 dark:bg-primary-950;
+  @apply text-primary-500 dark:text-primary-400;
+}

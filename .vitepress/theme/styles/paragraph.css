@@ -1,0 +1,5 @@
+/* paragraph */
+
+.VPDoc .doc-wrapper p:not(.custom-block-title) {
+  @apply my-4 leading-6;
+}

@@ -1,0 +1,18 @@
+/* table */
+
+.VPDoc .doc-wrapper table {
+  @apply my-4 w-full border-separate border-spacing-0 rounded-lg border border-neutral-150 text-left radius-squircle dark:border-neutral-825;
+}
+
+.VPDoc .doc-wrapper table th {
+  @apply bg-neutral-150 p-2.5 font-normal dark:bg-neutral-850;
+  @apply first-of-type:pl-5 last-of-type:pr-5;
+}
+
+.VPDoc .doc-wrapper table td {
+  @apply p-2 first-of-type:pl-5 last-of-type:pr-5;
+}
+
+.VPDoc .doc-wrapper table tr {
+  @apply even:bg-neutral-125 dark:even:bg-neutral-900;
+}

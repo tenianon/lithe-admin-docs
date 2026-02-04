@@ -1,0 +1,7 @@
+/* link */
+
+.VPDoc .doc-wrapper a:not(.header-anchor) {
+  @apply underline decoration-dashed decoration-1 underline-offset-4 transition-colors hover:decoration-solid;
+  @apply text-primary-400;
+  @apply hover:text-primary-500 dark:hover:text-primary-450;
+}

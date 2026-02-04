@@ -1,0 +1,91 @@
+/* code block */
+
+[class*='language-'] {
+  @apply relative my-4 overflow-hidden text-sm drop-shadow-xs;
+}
+[class*='language-'] code {
+  @apply block w-fit min-w-full px-5 leading-6;
+}
+
+[class*='language-'] pre {
+  @apply relative z-1 m-0 overflow-x-auto rounded-lg border py-4 radius-squircle;
+  @apply bg-neutral-100 dark:bg-neutral-850;
+  @apply border-neutral-150 dark:border-neutral-800;
+}
+
+/* code diff */
+
+[class*='language-'] code .diff {
+  @apply -mx-5 inline-block w-[calc(100%+2*1.25rem)] px-5;
+  @apply before:absolute before:left-1.5;
+}
+
+[class*='language-'] code .diff.remove {
+  @apply bg-red-500/10 dark:bg-red-800/20;
+  @apply before:content-['-'];
+  @apply before:text-red-600 dark:before:text-red-700;
+}
+
+[class*='language-'] code .diff.add {
+  @apply bg-green-500/10 dark:bg-green-800/20;
+  @apply before:content-['+'];
+  @apply before:text-green-600 dark:before:text-green-700;
+}
+
+/* code copy */
+
+[class*='language-'] .copy {
+  @apply absolute top-4 right-4 z-20 grid size-8 scale-50 cursor-pointer place-items-center rounded-lg border opacity-0 transition-[opacity,scale,background-color] delay-75 radius-squircle;
+  @apply bg-neutral-150 dark:bg-neutral-750;
+  @apply border-neutral-250 dark:border-neutral-700;
+  @apply hover:bg-neutral-200 dark:hover:bg-neutral-775;
+}
+
+[class*='language-'] .copy:not(.copied) {
+  @apply before:iconify before:size-5 before:ph--copy;
+}
+
+[class*='language-'] .copy.copied {
+  @apply before:iconify before:size-5 before:ph--check;
+}
+
+[class*='language-']:hover .copy {
+  @apply scale-100 opacity-100;
+}
+
+/* code lang */
+
+[class*='language-'] .lang {
+  @apply hidden;
+}
+
+/* [class*='language-'] .lang {
+  @apply absolute top-1 right-0 z-10 -translate-x-2 transition-[translate];
+}
+
+[class*='language-']:hover .lang {
+  @apply translate-x-full;
+} */
+
+/* code scrollbar */
+
+[class*='language-'] pre::-webkit-scrollbar {
+  @apply h-1.25;
+}
+
+[class*='language-'] pre::-webkit-scrollbar-thumb {
+  @apply cursor-pointer rounded-b-sm;
+  @apply bg-neutral-200;
+}
+
+[class*='language-'] pre::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-250;
+}
+
+.dark [class*='language-'] pre::-webkit-scrollbar-thumb {
+  @apply bg-neutral-775;
+}
+
+.dark [class*='language-'] pre::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-750;
+}

@@ -1,0 +1,188 @@
+@import 'tailwindcss' source(none);
+
+@source not inline('{filter,transition}');
+
+@source './components/**/*.vue';
+@source './layout/**/*.vue';
+@source './**/*.ts';
+
+@plugin '@iconify/tailwind4' {
+  prefixes: ph;
+  scale: 1.2;
+}
+
+@plugin 'tailwindcss-color-scale';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import './styles/shiki.css';
+@import './styles/heading.css';
+@import './styles/code.css';
+@import './styles/link.css';
+@import './styles/paragraph.css';
+@import './styles/custom-block.css';
+@import './styles/list.css';
+@import './styles/code-block.css';
+@import './styles/code-block-tab.css';
+@import './styles/code-block-group.css';
+@import './styles/table.css';
+@import './styles/outline.css';
+
+@layer base {
+  body {
+    @apply text-neutral-700 dark:text-neutral-400;
+  }
+}
+
+@theme {
+  --color-primary-50: #f4f7ee;
+  --color-primary-100: #e7ecdb;
+  --color-primary-150: #dfe4d0;
+  --color-primary-200: #cfdcba;
+  --color-primary-300: #acc18b;
+  --color-primary-400: #94ad6e;
+  --color-primary-450: #809860;
+  --color-primary-500: #779250;
+  --color-primary-600: #5c733d;
+  --color-primary-700: #475932;
+  --color-primary-800: #3b482c;
+  --color-primary-900: #333f28;
+  --color-primary-950: #2c3423;
+
+  --color-neutral-25: oklch(99.26% 0 0);
+  --color-neutral-75: oklch(97.76% 0 0);
+  --color-neutral-125: oklch(96.26% 0 0);
+  --color-neutral-150: oklch(94.6% 0 0);
+  --color-neutral-175: oklch(92.94% 0 0);
+  --color-neutral-250: oklch(89.59% 0 0);
+  --color-neutral-275: oklch(86.19% 0 0);
+  --color-neutral-325: oklch(82.24% 0 0);
+  --color-neutral-350: oklch(78.95% 0 0);
+  --color-neutral-450: oklch(63.23% 0 0);
+  --color-neutral-550: oklch(49.71% 0 0);
+  --color-neutral-650: oklch(40.51% 0 0);
+  --color-neutral-725: oklch(35.26% 0 0);
+  --color-neutral-750: oklch(32.01% 0 0);
+  --color-neutral-760: oklch(30.26% 0 0);
+  --color-neutral-775: oklch(28.76% 0 0);
+  --color-neutral-825: oklch(25.26% 0 0);
+  --color-neutral-850: oklch(23.66% 0 0);
+  --color-neutral-860: oklch(22.66% 0 0);
+  --color-neutral-925: oklch(17.97% 0 0);
+}
+
+@utility radius-squircle {
+  corner-shape: squircle;
+}
+
+@layer components {
+  .custom-scrollbar-w-sm::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  .custom-scrollbar-w-base::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  .custom-scrollbar-w-lg::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .custom-scrollbar-h-sm::-webkit-scrollbar {
+    @apply h-1;
+  }
+
+  .custom-scrollbar-h-base::-webkit-scrollbar {
+    @apply h-1.5;
+  }
+
+  .custom-scrollbar-h-lg::-webkit-scrollbar {
+    @apply h-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply cursor-pointer bg-neutral-200;
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-neutral-800;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-300/80;
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-750;
+  }
+
+  .pattern-hover:hover,
+  .pattern:not(.pattern-hover) {
+    --pattern-fg: theme(colors.neutral.200);
+    --pattern-border-color: var(--pattern-fg);
+    background-image: repeating-linear-gradient(
+      315deg,
+      var(--pattern-fg) 0,
+      var(--pattern-fg) 1px,
+      transparent 0,
+      transparent 50%
+    );
+    @apply z-9999 bg-size-[10px_10px] bg-fixed;
+  }
+
+  .dark .pattern {
+    --pattern-fg: theme(--color-neutral-825);
+  }
+
+  .pattern-x {
+    @apply border-x border-x-(--pattern-border-color);
+  }
+
+  .pattern-y {
+    @apply border-y border-y-(--pattern-border-color);
+  }
+
+  .pattern-full {
+    @apply border border-(--pattern-border-color);
+  }
+
+  .pattern.nav-active {
+    --pattern-fg: color-mix(in srgb, theme(colors.primary.200) 55%, transparent);
+    --pattern-border-color: theme(colors.primary.200);
+  }
+
+  .dark .pattern.nav-active {
+    --pattern-fg: color-mix(in srgb, theme(colors.primary.950) 55%, transparent);
+    --pattern-border-color: theme(colors.primary.950);
+  }
+
+  .pattern.theme-active {
+    --pattern-fg: theme(colors.primary.100);
+    --pattern-border-color: theme(colors.primary.300);
+  }
+
+  .dark .pattern.theme-active {
+    --pattern-fg: theme(colors.primary.950);
+    --pattern-border-color: theme(colors.primary.700);
+  }
+
+  .pattern.outline-active {
+    --pattern-fg: theme(colors.primary.500);
+  }
+
+  .dark .pattern.outline-active {
+    --pattern-fg: theme(colors.primary.600);
+  }
+
+  .pattern.pattern-hover {
+    --pattern-fg: theme(colors.neutral.150);
+  }
+
+  .dark .pattern.pattern-hover {
+    --pattern-fg: theme(colors.neutral.850);
+  }
+}
