@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/zh/guide/getting-started",
+      "destination": "/zh/guide/getting-started.html",
       "permanent": false
     }
   ]
