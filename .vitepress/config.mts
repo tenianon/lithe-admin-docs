@@ -9,7 +9,7 @@ import { codeBlockTitleMdPlugin } from './plugins/markdown-it/code-block-title'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   srcDir: 'content',
-  title: 'Lithe Admin',
+  title: 'Lithe Admin Docs',
   // description: "A Lithe Admin Docs",
   cleanUrls: true,
   locales: {
@@ -22,10 +22,6 @@ export default defineConfig({
   },
   lastUpdated: true,
   ignoreDeadLinks: true,
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    socialLinks: [{ icon: 'github', link: 'https://github.com/tenianon/lithe-admin' }],
-  },
   markdown: {
     theme: {
       light: 'github-light-default',
