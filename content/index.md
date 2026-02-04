@@ -7,7 +7,7 @@ import { onMounted } from 'vue'
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
-    window.location.href = 'zh/guide/getting-started'
+    window.location.href = '/zh/guide/getting-started'
   }
 })
 </script>
