@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/zh/guide/getting-started",
+      "permanent": false
+    }
+  ]
+}
