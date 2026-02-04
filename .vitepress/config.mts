@@ -11,8 +11,9 @@ export default defineConfig({
   srcDir: 'content',
   title: 'Lithe Admin',
   // description: "A Lithe Admin Docs",
+  cleanUrls: true,
   locales: {
-    zh: { ...zhLocale },
+    zh: zhLocale,
     en: {
       lang: 'en',
       label: 'English',
