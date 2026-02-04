@@ -2,12 +2,13 @@
 layout: page
 ---
 
-<script setup>
+<script setup lang="ts">
+import { inBrowser } from 'vitepress'
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  if (typeof window !== 'undefined') {
-    window.location.href = '/zh/guide/getting-started'
+  if (inBrowser) {
+    window.location.replace('/zh/guide/getting-started')
   }
 })
 </script>
