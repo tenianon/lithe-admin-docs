@@ -13,18 +13,24 @@ export default defineConfig({
   // description: "A Lithe Admin Docs",
   cleanUrls: true,
   locales: {
-    zh: zhLocale,
+    root: {
+      ...zhLocale,
+      link: '/'
+    },
     en: {
       lang: 'en',
       label: 'English',
       link: '/en/',
     },
   },
+  rewrites: {
+    'zh/:page*': ':page*'
+  },
   lastUpdated: true,
   ignoreDeadLinks: true,
   markdown: {
     theme: {
-      light: 'github-light-default',
+      light: 'vitesse-light',
       dark: shikiDarkTheme as any,
     },
     codeTransformers: [transformerTwoslash()],
