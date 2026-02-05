@@ -7,13 +7,13 @@ export const localeConfig: LocaleConfig[string] = {
     lastUpdatedText: '最后编辑时间',
     editLinkText: '在 GitHub 上编辑此页',
     nav: [
-      { text: '指南', link: '/zh/guide/getting-started', activeMatch: '^/zh/guide/' },
-      { text: '指南-旧版', link: '/zh/guide-old/getting-started', activeMatch: '^/zh/guide-old/' },
+      { text: '指南', link: '/guide/getting-started', activeMatch: '^/guide/' },
+      { text: '指南-旧版', link: '/guide-old/getting-started', activeMatch: '^/guide-old/' },
       { text: '演示地址', link: 'https://lithe-admin.havenovelgod.com', target: '_blank' },
     ],
     sidebar: {
-      '/zh/guide/': {
-        base: '/zh/guide/',
+      '/guide/': {
+        base: '/guide/',
         items: [
           {
             text: '指南',
@@ -33,8 +33,8 @@ export const localeConfig: LocaleConfig[string] = {
           },
         ],
       },
-      '/zh/guide-old/': {
-        base: '/zh/guide-old/',
+      '/guide-old/': {
+        base: '/guide-old/',
         items: [
           {
             text: '指南',
