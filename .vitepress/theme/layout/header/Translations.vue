@@ -27,9 +27,9 @@ onClickOutside(
       @click="isOpen = !isOpen"
       class="flex cursor-pointer items-center gap-x-1 p-1 transition-colors hover:text-primary-500 dark:hover:text-primary-450"
     >
-      <span class="iconify ph--translate"></span>
+      <span class="iconify shrink-0 ph--translate"></span>
       <span>{{ currentLang.label }}</span>
-      <span class="iconify ph--caret-down"></span>
+      <span class="iconify shrink-0 ph--caret-down"></span>
     </div>
     <transition
       enter-from-class="scale-x-60 scale-y-0 opacity-0"

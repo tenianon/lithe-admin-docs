@@ -1,3 +1,4 @@
 {
-  "tailwindCSS.experimental.configFile": ".vitepress/theme/main.css"
+  "tailwindCSS.experimental.configFile": ".vitepress/theme/main.css",
+  "kiroAgent.configureMCP": "Disabled"
 }

@@ -14,7 +14,9 @@
 }
 
 .vp-code-group .tabs label {
-  @apply flex h-8.5 cursor-pointer items-center text-sm not-first-of-type:-ml-4 first-of-type:ml-8 max-sm:first-of-type:ml-4;
+  @apply flex h-8.5 cursor-pointer items-center text-sm;
+  @apply not-first-of-type:-ml-4 first-of-type:ml-8 max-sm:first-of-type:ml-4;
+  @apply last-of-type:mr-8 max-sm:last-of-type:mr-4;
 
   @apply before:h-full before:w-6 before:shrink-0 before:translate-x-2 before:-skew-x-25 before:rounded-tl-lg before:border-y before:border-l before:radius-squircle;
   @apply before:bg-neutral-100 dark:before:bg-neutral-900;

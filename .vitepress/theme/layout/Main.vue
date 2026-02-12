@@ -1,6 +1,9 @@
 <script lang="ts" setup>
+import { Content, useData } from 'vitepress'
 import Outline from './Outline.vue'
 import ContentFooter from './ContentFooter.vue'
+
+const { frontmatter } = useData()
 </script>
 
 <template>
@@ -17,7 +20,7 @@ import ContentFooter from './ContentFooter.vue'
         </div>
         <ContentFooter />
       </div>
-      <Outline />
+      <Outline v-if="frontmatter.outline === 'deep'" />
     </div>
   </div>
 </template>

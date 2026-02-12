@@ -1,5 +1,4 @@
 import { localeConfig as zhLocale } from '../content/zh/locale'
-import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { defineConfig } from 'vitepress'
 import tailwindcss from '@tailwindcss/vite'
 import shikiDarkTheme from './theme/shiki/dark/shimmer-theme-dark-neutral-block.json'
@@ -33,8 +32,6 @@ export default defineConfig({
       light: 'vitesse-light',
       dark: shikiDarkTheme as any,
     },
-    codeTransformers: [transformerTwoslash()],
-    languages: ['js', 'jsx', 'ts', 'tsx', 'json', 'css', 'scss', 'html', 'vue'],
     config(md) {
       md.use(codeGroupMdPlugin)
       md.use(codeBlockTitleMdPlugin)

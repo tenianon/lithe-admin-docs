@@ -16,10 +16,7 @@
 // } satisfies Theme
 
 import { h } from 'vue'
-import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import Layout from './layout/Layout.vue'
-
-import '@shikijs/vitepress-twoslash/style.css'
 
 import './main.css'
 
@@ -28,7 +25,6 @@ import type { Theme } from 'vitepress'
 
 export default {
   Layout: () => h(Layout, null, {}),
-  enhanceApp({ app }: EnhanceAppContext) {
-    app.use(TwoslashFloatingVue)
+  enhanceApp({ router }: EnhanceAppContext) {
   },
 } satisfies Theme

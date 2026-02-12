@@ -2,11 +2,13 @@
 import Header from './header/index.vue'
 import Aside from './Aside.vue'
 import Main from './Main.vue'
+import Pattern from '../components/Pattern.vue'
+import { useData } from 'vitepress'
 import { registerWatchers, useSidebarControl } from '../composables/vitepress'
 
-// @ts-ignore
 import topographySvg from '../assets/topography.svg'
 
+const { frontmatter } = useData()
 const { close } = useSidebarControl()
 registerWatchers({ closeSidebar: close })
 </script>
@@ -27,8 +29,9 @@ registerWatchers({ closeSidebar: close })
         'grid-rows-[1fr_1.25rem_auto]',
       ]"
     >
-      <Aside />
+      <Aside v-if="frontmatter.outline === 'deep'" />
       <div
+        v-if="frontmatter.outline === 'deep'"
         :class="[
           'pattern pattern-x sticky top-(--header-height) h-[calc(100dvh-var(--header-height))]',
           'col-start-2',
@@ -45,8 +48,10 @@ registerWatchers({ closeSidebar: close })
           'max-lg:hidden',
         ]"
       ></div>
-      <div :class="['pattern pattern-y col-span-full row-start-2 h-full', 'lg:col-start-2']"></div>
-      <div :class="['p-4', 'lg:col-start-3']"></div>
+      <div :class="['pattern pattern-y col-span-full row-start-2 h-full', 'lg:col-start-1']"></div>
+      <div :class="['py-2.5', 'lg:col-start-3']">
+        <p class="text-center text-sm">Copyright © 2026 Lithe Admin</p>
+      </div>
     </div>
   </div>
 </template>

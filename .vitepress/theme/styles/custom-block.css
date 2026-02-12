@@ -94,6 +94,12 @@
   @apply mb-0!;
 }
 
+.custom-block code {
+  @apply dark:text-primary-350!;
+  @apply dark:border-primary-650!;
+  @apply dark:bg-primary-700!;
+}
+
 /* details */
 
 .details.custom-block summary {
