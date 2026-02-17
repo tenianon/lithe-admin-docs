@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useData } from 'vitepress'
 import { useInjectionToRefs } from '../../composables/useInjection'
 import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
@@ -52,6 +52,7 @@ const handleOutlineClick = () => {
   <div class="hidden h-full items-center justify-between px-3 py-1 select-none max-lg:flex">
     <div class="flex h-full items-center gap-1 text-neutral-600 dark:text-neutral-400">
       <div
+        v-show="breadcrumbs.length > 1"
         @click="handleMenuClick"
         class="flex h-full items-center rounded px-1.5 transition-[background-color] duration-300 hover:bg-neutral-200 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-800"
       >
