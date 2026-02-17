@@ -25,9 +25,7 @@ export const localeConfig: LocaleConfig[string] = {
           },
           {
             text: '配置',
-            items: [
-              { text: '菜单路由', link: 'menu-route' },
-            ],
+            items: [{ text: '菜单路由', link: 'menu-route' }],
           },
         ],
       },
@@ -47,6 +45,7 @@ export const localeConfig: LocaleConfig[string] = {
             items: [
               { text: '菜单路由', link: 'menu-route' },
               { text: '主题', link: 'theme' },
+              { text: 'pz', link: 'config' },
             ],
           },
         ],

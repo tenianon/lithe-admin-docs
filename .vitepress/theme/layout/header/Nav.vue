@@ -17,7 +17,7 @@ const { theme, page } = useData()
         class="pattern-x flex h-full items-center px-4 transition-[color] hover:text-primary-500 dark:hover:text-primary-450"
         :class="
           isActive(page.relativePath, activeMatch || link, !!activeMatch)
-            ? 'pattern nav-active text-primary-500 dark:text-primary-450'
+            ? 'pattern pattern-fixed nav-active text-primary-500 dark:text-primary-450'
             : 'border-transparent'
         "
       >

@@ -1,4 +1,5 @@
 import { localeConfig as zhLocale } from '../content/zh/locale'
+import { localeConfig as enLocale } from '../content/en/locale'
 import { defineConfig } from 'vitepress'
 import tailwindcss from '@tailwindcss/vite'
 import shikiDarkTheme from './theme/shiki/dark/shimmer-theme-dark-neutral-block.json'
@@ -17,8 +18,7 @@ export default defineConfig({
       link: '/'
     },
     en: {
-      lang: 'en',
-      label: 'English',
+      ...enLocale,
       link: '/en/',
     },
   },

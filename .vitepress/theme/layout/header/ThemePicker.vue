@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { useThemeMode, type ThemeMode } from '../composables/useThemeMode'
+import { useThemeMode, type ThemeMode } from '../../composables/useThemeMode'
+
+interface ThemePickerProps {
+  size?: 'small' | 'medium' | 'large'
+}
+
+const { size = 'medium' } = defineProps<ThemePickerProps>()
 
 const { themeMode, setThemeMode } = useThemeMode()
 
@@ -34,8 +40,15 @@ const themeList: Array<{ value: ThemeMode; icon: string }> = [
       @click="setThemeMode(item.value)"
     >
       <span
-        class="iconify size-4.5 p-0.5"
-        :class="item.icon"
+        class="iconify p-0.5"
+        :class="[
+          item.icon,
+          {
+            'size-3.5': size === 'small',
+            'size-4.5': size === 'medium',
+            'size-5.5': size === 'large',
+          },
+        ]"
       ></span>
     </div>
   </div>

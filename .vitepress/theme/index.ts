@@ -25,6 +25,5 @@ import type { Theme } from 'vitepress'
 
 export default {
   Layout: () => h(Layout, null, {}),
-  enhanceApp({ router }: EnhanceAppContext) {
-  },
+  enhanceApp({ router }: EnhanceAppContext) {},
 } satisfies Theme
