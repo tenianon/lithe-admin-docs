@@ -30,14 +30,14 @@ registerWatchers({ closeSidebar: close })
         <Aside v-if="frontmatter.outline === 'deep'" />
         <div
           v-if="frontmatter.outline === 'deep'"
-          class="pattern pattern-x pattern-fixed sticky top-(--header-height) col-start-2 row-start-1 h-[calc(100dvh-var(--header-height))] max-lg:hidden"
+          class="pattern pattern-x sticky top-(--header-height) col-start-2 row-start-1 h-[calc(100dvh-var(--header-height))] bg-fixed max-lg:hidden"
         ></div>
         <Main />
         <div
-          class="pattern pattern-x pattern-fixed sticky top-(--header-height) col-start-4 row-start-1 h-[calc(100dvh-var(--header-height))] max-lg:hidden"
+          class="pattern pattern-x sticky top-(--header-height) col-start-4 row-start-1 h-[calc(100dvh-var(--header-height))] bg-fixed max-lg:hidden"
         ></div>
         <div
-          class="pattern pattern-y pattern-fixed col-span-full row-start-2 h-full lg:col-start-1"
+          class="pattern pattern-y col-span-full row-start-2 h-full bg-fixed lg:col-start-1"
         ></div>
         <div class="py-2.5 lg:col-start-3">
           <p class="text-center text-sm">Copyright © 2026 Lithe Admin</p>

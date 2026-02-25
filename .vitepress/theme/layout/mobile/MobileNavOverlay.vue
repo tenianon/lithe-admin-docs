@@ -82,7 +82,7 @@ const onLeave = (el: Element, done: () => void) => {
                 class="pattern-y flex h-full items-center bg-local px-8 py-3 transition-[color] hover:text-primary-500 dark:hover:text-primary-450"
                 :class="
                   isActive(page.relativePath, item.activeMatch || item.link, !!item.activeMatch)
-                    ? 'pattern nav-active text-primary-500 dark:text-primary-450'
+                    ? 'pattern text-primary-500 [--pattern-border-color:var(--color-primary-200)] [--pattern-fg:var(--color-primary-200)]/55 dark:text-primary-450 dark:[--pattern-border-color:var(--color-primary-950)] dark:[--pattern-fg:var(--color-primary-950)]/55'
                     : 'border-transparent'
                 "
               >

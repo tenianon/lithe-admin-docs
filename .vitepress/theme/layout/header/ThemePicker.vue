@@ -34,7 +34,7 @@ const themeList: Array<{ value: ThemeMode; icon: string }> = [
       class="flex cursor-pointer items-center justify-center rounded-full border p-0.75 transition-colors radius-squircle hover:text-primary-500 dark:hover:text-primary-450"
       :class="
         themeMode === item.value
-          ? 'pattern pattern-full theme-active bg-size-[4px_4px] text-primary-500 dark:text-primary-450'
+          ? 'pattern pattern-full bg-size-[4px_4px] text-primary-500 [--pattern-border-color:var(--color-primary-300)] [--pattern-fg:var(--color-primary-100)] dark:text-primary-450 dark:[--pattern-border-color:var(--color-primary-700)] dark:[--pattern-fg:var(--color-primary-950)]'
           : 'border-transparent'
       "
       @click="setThemeMode(item.value)"

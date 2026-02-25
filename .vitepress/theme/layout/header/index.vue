@@ -16,7 +16,7 @@ import MobileNav from '../mobile/MobileNav.vue'
     >
       <div class="col-start-1 row-start-1 flex items-center px-8">Lithe Admin Docs</div>
       <div
-        class="pattern pattern-x pattern-fixed col-start-2 row-span-full row-start-1 max-lg:hidden"
+        class="pattern pattern-x col-start-2 row-span-full row-start-1 bg-fixed max-lg:hidden"
       ></div>
       <div class="col-start-3 row-start-1 flex justify-end px-6 max-lg:col-start-2 max-lg:px-2.5">
         <div class="flex items-center max-lg:hidden">
@@ -39,9 +39,9 @@ import MobileNav from '../mobile/MobileNav.vue'
         <MobileNav />
       </div>
       <div
-        class="pattern pattern-x pattern-fixed col-start-4 row-span-full row-start-1 max-lg:hidden"
+        class="pattern pattern-x col-start-4 row-span-full row-start-1 bg-fixed max-lg:hidden"
       ></div>
-      <div class="pattern pattern-y pattern-fixed relative col-span-full row-start-2">
+      <div class="pattern pattern-y relative col-span-full row-start-2 bg-fixed">
         <MobileBreadcrumb />
       </div>
     </div>

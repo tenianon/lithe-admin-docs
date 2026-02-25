@@ -80,7 +80,9 @@ onMounted(() => {
           'transition-[height,top]': outlinePatternAnimatable,
         }"
       >
-        <div class="pattern outline-active absolute h-full w-3.5 bg-size-[4px_4px]"></div>
+        <div
+          class="pattern absolute h-full w-3.5 bg-size-[4px_4px] [--pattern-fg:var(--color-primary-500)] dark:[--pattern-fg:var(--color-primary-600)]"
+        ></div>
       </div>
 
       <div ref="outlineRef">

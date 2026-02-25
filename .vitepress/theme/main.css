@@ -131,7 +131,7 @@
       transparent 0,
       transparent 50%
     );
-    @apply z-9999 bg-size-[10px_10px] bg-fixed;
+    @apply z-9999 bg-size-[10px_10px];
   }
 
   .dark .pattern {
@@ -148,34 +148,6 @@
 
   .pattern-full {
     @apply border border-(--pattern-border-color);
-  }
-
-  .pattern.nav-active {
-    --pattern-fg: color-mix(in srgb, theme(colors.primary.200) 55%, transparent);
-    --pattern-border-color: theme(colors.primary.200);
-  }
-
-  .dark .pattern.nav-active {
-    --pattern-fg: color-mix(in srgb, theme(colors.primary.950) 55%, transparent);
-    --pattern-border-color: theme(colors.primary.950);
-  }
-
-  .pattern.theme-active {
-    --pattern-fg: theme(colors.primary.100);
-    --pattern-border-color: theme(colors.primary.300);
-  }
-
-  .dark .pattern.theme-active {
-    --pattern-fg: theme(colors.primary.950);
-    --pattern-border-color: theme(colors.primary.700);
-  }
-
-  .pattern.outline-active {
-    --pattern-fg: theme(colors.primary.500);
-  }
-
-  .dark .pattern.outline-active {
-    --pattern-fg: theme(colors.primary.600);
   }
 
   .pattern.pattern-hover {
