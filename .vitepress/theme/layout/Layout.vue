@@ -39,8 +39,12 @@ registerWatchers({ closeSidebar: close })
         <div
           class="pattern pattern-y col-span-full row-start-2 h-full bg-fixed lg:col-start-1"
         ></div>
-        <div class="py-2.5 lg:col-start-3">
-          <p class="text-center text-sm">Copyright © 2026 Lithe Admin</p>
+        <div class="py-3 lg:col-start-3">
+          <div
+            class="mx-auto grid w-full max-w-2xl grid-cols-1 gap-x-14 xl:max-w-6xl xl:grid-cols-[minmax(0,1fr)_var(--container-2xs)]"
+          >
+            <p class="text-center text-sm">Copyright © 2026 Lithe Admin</p>
+          </div>
         </div>
       </div>
       <MobileLayout />

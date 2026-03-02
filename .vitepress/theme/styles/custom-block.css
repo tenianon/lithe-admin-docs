@@ -97,7 +97,7 @@
 .custom-block code {
   @apply dark:text-primary-350!;
   @apply dark:border-primary-650!;
-  @apply dark:bg-primary-700!;
+  @apply dark:bg-primary-630!;
 }
 
 /* details */
