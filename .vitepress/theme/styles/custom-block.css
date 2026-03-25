@@ -95,9 +95,9 @@
 }
 
 .custom-block code {
-  @apply dark:text-primary-350!;
+  @apply dark:text-primary-300!;
   @apply dark:border-primary-650!;
-  @apply dark:bg-primary-630!;
+  @apply dark:bg-primary-750!;
 }
 
 /* details */
