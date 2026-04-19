@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { onMounted, useTemplateRef, shallowRef, ref, CSSProperties } from 'vue'
 import { useData, onContentUpdated } from 'vitepress'
-import OutlineItem, { type OutlineItemProps } from './OutlineItem.vue'
-import { debounce } from '../utils'
+import { onMounted, useTemplateRef, shallowRef, ref, CSSProperties } from 'vue'
+
 import { getHeaders } from '../composables/vitepress'
+import { debounce } from '../utils'
+import OutlineItem, { type OutlineItemProps } from './OutlineItem.vue'
 
 const { frontmatter, theme } = useData()
 
@@ -86,11 +87,7 @@ onMounted(() => {
       </div>
 
       <div ref="outlineRef">
-        <OutlineItem
-          v-for="header in headers"
-          :key="header.link"
-          :header
-        />
+        <OutlineItem v-for="header in headers" :key="header.link" :header />
       </div>
     </div>
   </div>

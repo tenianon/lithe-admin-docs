@@ -256,6 +256,7 @@
         "variable.parameter.misc.css",
         "entity.other.attribute-name",
         "invalid.illegal.character-not-allowed-here.html",
+        "invalid.deprecated.entity.other.attribute-name.html",
         "punctuation.definition.entity.less",
         "source.python constant.other.ellipsis.python",
         "source.python constant.character.format.placeholder.other.python",
@@ -344,6 +345,7 @@
         "support.type.property-name.json",
         "text.html.markdown punctuation.definition.quote.begin.markdown",
         "text.html.markdown markup.quote.markdown meta.paragraph.markdown",
+        "variable.object.property",
         "source.python meta.attribute.python",
         "meta.at-rule.media.scss",
         "meta.definition.variable.scss",
@@ -373,6 +375,7 @@
         "source.go storage.type",
         "source.go entity.name.type.any.go",
         "entity.name.type.instance.jsdoc",
+        "entity.name.type",
         "support.constant.mathematical-symbols.scss",
         "meta.property-value.scss",
         "support.type.builtin.ts",
@@ -407,7 +410,8 @@
         "entity.name.type.class.ts",
         "entity.name.type.class.tsx",
         "entity.other.inherited-class.tsx",
-        "source.rust constant.other.caps.rust"
+        "source.rust constant.other.caps.rust",
+        "support.class.dart"
       ],
       "settings": {
         "foreground": "#4495eb"
@@ -496,6 +500,12 @@
       ],
       "settings": {
         "foreground": "#5aab81"
+      }
+    },
+    {
+      "scope": ["source.dart"],
+      "settings": {
+        "foreground": "#8a8b8a"
       }
     }
   ],
@@ -602,6 +612,12 @@
     },
     "struct:rust": {
       "foreground": "#4495eb"
+    },
+    "annotation:dart": {
+      "foreground": "#8a8b8a"
+    },
+    "property.annotation:dart": {
+      "foreground": "#c28455"
     }
   }
 }

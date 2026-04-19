@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Menu from '../../components/Menu.vue'
-import { useInjectionToRefs } from '../../composables/useInjection'
 import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
+import { useInjectionToRefs } from '../../composables/useInjection'
 
 const { showMenu, enableTransition } = useInjectionToRefs(mobileLayoutInjectionKey)
 </script>

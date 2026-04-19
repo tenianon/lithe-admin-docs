@@ -1,7 +1,3 @@
----
-outline: deep
----
-
 # 快速开始
 
 ## 环境要求 {#environmental-requirements}
@@ -117,19 +113,19 @@ bun install --proxy http://127.0.0.1:8888
 ::: code-group
 
 ```shell [pnpm]
-pnpm dev
+pnpm run dev
 ```
 
 ```shell [npm]
-npm dev
+npm run dev
 ```
 
 ```shell [yarn]
-yarn dev
+yarn run dev
 ```
 
 ```shell [bun]
-bun dev
+bun run dev
 ```
 
 :::

@@ -1,287 +1,288 @@
-# 主题定制
+# 主题颜色
 
-Lithe Admin 提供了强大而灵活的主题系统，支持亮色/暗色模式切换和深度定制。
+**Lithe Admin** 使用 [Tailwind CSS](https://tailwindcss.com/) 原子化框架，并将 Tailwind CSS 颜色板的 `neutral` 作为文字和背景的基色。
 
-## 主题架构
+## 颜色
 
-主题系统采用三层架构：
+在 `src/utils/tailwindColor.ts` 中，分别导出了两种颜色单位（`hex` 和 `oklch`）的数据。这两个颜色的数据由 `src/utils/tailwindColor.test.ts` 中的 `extendTailwindCssColors` 方法生成，内部实现通过 [chroma](https://gka.github.io/chroma.js) 颜色处理库对现有的 Tailwind CSS 的颜色板数据进行计算处理，从而在原有的色阶上做扩展，使其配色效果可以更加细腻。
 
-1. **基础主题** - 定义亮色/暗色模式的基础样式
-2. **通用覆盖** - 跨模式共享的样式覆盖
-3. **组件覆盖** - 特定上下文的组件样式
-
-## 主题模式
-
-### 切换主题模式
-
-支持三种主题模式：
-
-- **light** - 亮色模式
-- **dark** - 暗色模式
-- **auto** - 跟随系统
-
-```typescript
-import { usePreferencesStore } from '@/stores/preferences'
-
-const preferences = usePreferencesStore()
-
-// 切换到暗色模式
-preferences.colorMode = 'dark'
-
-// 切换到亮色模式
-preferences.colorMode = 'light'
-
-// 跟随系统
-preferences.colorMode = 'auto'
-```
-
-### 在组件中使用
-
-```vue
-<script setup lang="ts">
-import { toRefsPreferencesStore } from '@/stores/preferences'
-
-const { colorMode } = toRefsPreferencesStore()
-</script>
-
-<template>
-  <div>当前模式: {{ colorMode }}</div>
-</template>
-```
-
-## 主题色定制
-
-### 修改主题色
-
-```typescript
-import { usePreferencesStore } from '@/stores/preferences'
-
-const preferences = usePreferencesStore()
-
-// 设置主题色（支持任何有效的颜色值）
-preferences.themeColor = '#8e51ff' // 默认紫色
-preferences.themeColor = '#1890ff' // 蓝色
-preferences.themeColor = '#52c41a' // 绿色
-```
-
-### 主题色应用
-
-主题色会自动应用到：
-
-- 主要按钮和链接
-- 菜单选中状态
-- 进度条和加载动画
-- 图表配色方案
-
-## 主题配置文件
-
-### 亮色主题
-
-位置：`src/theme/light.ts`
-
-```typescript
-export const lightTheme: GlobalThemeOverrides = {
-  common: {
-    primaryColor: '#8e51ff',
-    primaryColorHover: '#a06fff',
-    // 更多颜色配置...
+```ts [src/utils/tailwindColor.ts]
+export default {
+  slate: {
+    '25': '#fbfdfe',
+    '50': '#f8fafc',
+    '75': '#f4f7fb',
+    // ...
   },
-  // 组件特定覆盖...
+  // ...
+  neutral: {
+    '25': '#f8fafc',
+    '50': '#f1f5f9',
+    '75': '#e2e8f0',
+    // ...
+  },
+  // ...
+}
+
+export const tailwindColorOklch = {
+  slate: {
+    '25': 'oklch(99.21% 0 247.83)',
+    '50': 'oklch(98.4% 0.003 247.858)',
+    '75': 'oklch(97.62% 0.01 247.84)',
+    // ...
+  },
+  // ...
+  neutral: {
+    '25': 'oklch(99.26% 0 0)',
+    '50': 'oklch(98.5% 0 0)',
+    '75': 'oklch(97.76% 0 0)',
+    // ...
+  },
+  // ...
 }
 ```
 
-### 暗色主题
+::: tip 为什么导出了 `hex` 和 `oklch` 两个颜色单位变量的数据？
 
-位置：`src/theme/dark.ts`
+因为 `Naive UI` 目前不支持 `oklch` 颜色单位，而 `Tailwind CSS 4.0` 起开始使用 `oklch` 单位。<br/>为了代码的统一性，又提取了一份 `oklch` 单位的颜色数据用于 `tailwind.config.ts` 进行配置。
 
-```typescript
-export const darkTheme: GlobalThemeOverrides = {
-  common: {
-    primaryColor: '#8e51ff',
-    primaryColorHover: '#a06fff',
-    // 更多颜色配置...
-  },
-  // 组件特定覆盖...
+:::
+
+::: tip 是否可以去掉 `tailwindColorOklch` 数据？
+
+可以，在 `tailwind.config.ts` 中，需要把引入的 `tailwindColorOklch` 变量修改为默认导出。<br/>这不会影响到整体样式，只是新增的色阶颜色样式的单位从 `oklch` 变为 `hex`。
+
+```ts [tailwind.config.ts]
+import { tailwindColorOklch } from "./src/utils/tailwindColor"; // [!code --]
+import colors from "./src/utils/tailwindColor"; // [!code ++]
+
+// ...
+
+export function extractShades(
+  colorObject: Record<keyof typeof tailwindColorOklch, Record<string, string>> // [!code --]
+  colorObject: Record<keyof typeof colors, Record<string, string>> // [!code ++]
+) {
+  // ...
+
+  return result;
 }
-```
 
-### 通用覆盖
-
-位置：`src/theme/common.ts`
-
-定义跨模式共享的样式，如圆角、间距等：
-
-```typescript
-export const commonThemeOverrides: GlobalThemeOverrides = {
-  common: {
-    borderRadius: '8px',
-    // 更多通用配置...
+export default <Config>{
+  theme: {
+    extend: {
+      colors: extractShades(tailwincolorsdColorOklch), // [!code --]
+      colors: extractShades(colors), // [!code ++]
+    },
   },
+};
+```
+
+```ts
+import { tailwindColorOklch } from "./src/utils/tailwindColor"; // [!code --]
+import colors from "./src/utils/tailwindColor"; // [!code ++]
+
+// ...
+
+export function extractShades(
+  colorObject: Record<keyof typeof tailwindColorOklch, Record<string, string>> // [!code --]
+  colorObject: Record<keyof typeof colors, Record<string, string>> // [!code ++]
+) {
+  // ...
+
+  return result;
 }
+
+export default <Config>{
+  theme: {
+    extend: {
+      colors: extractShades(tailwincolorsdColorOklch),  // [!code --]
+      colors: extractShades(colors), // [!code ++]
+    },
+  },
+};
 ```
 
-## 使用主题
+::: code-group
 
-### useTheme 组合式函数
-
-```vue
-<script setup lang="ts">
-import { useTheme } from '@/composables/useTheme'
-
-const { theme, themeOverrides } = useTheme()
-</script>
-
-<template>
-  <n-config-provider
-    :theme="theme"
-    :theme-overrides="themeOverrides"
-  >
-    <!-- 你的组件 -->
-  </n-config-provider>
-</template>
+```sh [pnpm]
+$ pnpm create lithe@latest
 ```
 
-### 组件级主题覆盖
-
-使用 `useComponentThemeOverrides` 为特定上下文定制主题：
-
-```typescript
-import { useComponentThemeOverrides } from '@/composables/useComponentThemeOverrides'
-
-const { scrollbarThemeOverrides } = useComponentThemeOverrides()
-
-// 在不同布局中使用不同的滚动条样式
+```sh [npm]
+$ npm create lithe@latest
 ```
 
-## 视觉效果
-
-### 噪点效果
-
-添加微妙的噪点纹理，增强视觉层次：
-
-```typescript
-import { usePreferencesStore } from '@/stores/preferences'
-
-const preferences = usePreferencesStore()
-
-// 启用噪点效果
-preferences.noise.show = true
-
-// 调整不透明度（0-100）
-preferences.noise.opacity = 20
+```sh [yarn]
+$ yarn create lithe@latest
 ```
 
-### 水印
-
-为页面添加水印保护：
-
-```typescript
-import { usePreferencesStore } from '@/stores/preferences'
-
-const preferences = usePreferencesStore()
-
-// 启用水印
-preferences.watermark.show = true
-
-// 配置水印
-preferences.watermark.content = 'Lithe Admin'
-preferences.watermark.fontColor = 'rgba(0, 0, 0, 0.15)'
-preferences.watermark.fontSize = 16
+```sh [bun]
+$ bun create lithe@latest
 ```
 
-水印支持的配置项：
+:::
 
-| 属性        | 类型      | 默认值               | 说明         |
-| ----------- | --------- | -------------------- | ------------ |
-| `show`      | `boolean` | `false`              | 是否显示水印 |
-| `content`   | `string`  | `'Lithe Admin'`      | 水印内容     |
-| `fontColor` | `string`  | `'rgba(0,0,0,0.15)'` | 字体颜色     |
-| `fontSize`  | `number`  | `16`                 | 字体大小     |
-| `width`     | `number`  | `384`                | 水印宽度     |
-| `height`    | `number`  | `384`                | 水印高度     |
-| `xOffset`   | `number`  | `12`                 | 水平偏移     |
-| `yOffset`   | `number`  | `60`                 | 垂直偏移     |
-| `rotate`    | `number`  | `-15`                | 旋转角度     |
+## 配置组件主题变量
 
-## 颜色工具
+在 `src/theme` 目录下
 
-### 使用 Chroma.js
+`common.ts` 通用配置，一般用于修改组件的尺寸
 
-项目内置 `chroma-js` 用于颜色处理：
+```ts [src/theme/common.ts]
+import { ccAPCA, cdh } from '@/utils/chromaHelper'
+import twc from '@/utils/tailwindColor'
 
-```typescript
-import { twColors } from '@/utils/chromaHelper'
+import type { GlobalThemeOverrides } from 'naive-ui'
 
-// 获取 TailwindCSS 颜色值
-const blue500 = twColors('blue', 500)
+const BASE = {
+  fontWeight: '400',
+}
 
-// 颜色操作
-import chroma from 'chroma-js'
-
-const color = chroma('#8e51ff')
-const lighter = color.brighten(1).hex()
-const darker = color.darken(1).hex()
-```
-
-## TailwindCSS 集成
-
-### 使用 TailwindCSS 类
-
-```vue
-<template>
-  <div class="rounded-lg bg-primary-500 p-4 text-white">主题色背景</div>
-</template>
-```
-
-### 动态主题色
-
-TailwindCSS 配置支持动态主题色：
-
-```typescript
-// tailwind.config.ts 中配置
-theme: {
-  extend: {
-    colors: {
-      primary: {
-        // 基于主题色生成色阶
-      }
-    }
+export function commonThemeOverrides(primaryColor = ''): GlobalThemeOverrides {
+  return {
+    common: {
+      actionColor: '',
+      borderRadius: '4px',
+      primaryColor,
+      primaryColorHover: cdh(primaryColor, 0.1),
+      primaryColorPressed: cdh(primaryColor, 0.2),
+      primaryColorSuppl: primaryColor,
+    },
+    // ...
   }
 }
 ```
 
-## 最佳实践
+`light.ts` 浅色主题配置
 
-1. **使用主题变量** - 避免硬编码颜色值，使用主题系统提供的颜色
-2. **保持一致性** - 在亮色和暗色模式中保持相同的视觉层次
-3. **测试两种模式** - 确保在两种模式下都有良好的可读性
-4. **适度定制** - 过度定制可能导致维护困难
+```ts [src/theme/light.js]
+// ...
 
-## 示例：自定义主题
-
-```typescript
-// 创建自定义主题配置
-import type { GlobalThemeOverrides } from 'naive-ui'
-
-export const customTheme: GlobalThemeOverrides = {
-  common: {
-    primaryColor: '#1890ff',
-    primaryColorHover: '#40a9ff',
-    primaryColorPressed: '#096dd9',
-    borderRadius: '4px',
-  },
-  Button: {
-    borderRadiusMedium: '4px',
-    fontSizeMedium: '14px',
-  },
-  Card: {
-    borderRadius: '8px',
+const LIGHT = {
+  textColorBase: twc.neutral[800],
+  textColor1: twc.neutral[750],
+  textColor2: twc.neutral[700],
+  textColor3: twc.neutral[500],
+  borderColor: twc.neutral[150],
+  input: {
+    color: twc.neutral[25],
+    border: `1px solid ${twc.neutral[200]}`,
   },
 }
 
-// 在应用中使用
-import { useTheme } from '@/composables/useTheme'
-
-const { themeOverrides } = useTheme()
-Object.assign(themeOverrides.value, customTheme)
+export function baseLightThemeOverrides(primaryColor = ''): GlobalThemeOverrides {
+  return {
+    common: {
+      textColorBase: LIGHT.textColorBase,
+      textColor1: LIGHT.textColor1,
+      textColor2: LIGHT.textColor2,
+      textColor3: LIGHT.textColor3,
+      bodyColor: twc.neutral[25],
+      // ...
+    },
+    // ...
+  }
+}
 ```
+
+`dark.ts` 深色主题配置
+
+```ts [src/theme/dark.vue]
+// ...
+
+const DARK = {
+  baseColor: twc.neutral[250],
+  textColorBase: twc.neutral[250],
+  textColor1: twc.neutral[350],
+  textColor2: twc.neutral[350],
+  textColor3: twc.neutral[450],
+  borderColor: twc.neutral[800],
+  input: {
+    color: twc.neutral[800],
+    border: `1px solid ${twc.neutral[750]}`,
+  },
+}
+
+export function baseDarkThemeOverrides(primaryColor = ''): GlobalThemeOverrides {
+  return {
+    common: {
+      baseColor: DARK.baseColor,
+      textColorBase: DARK.textColorBase,
+      textColor1: DARK.textColor1,
+      // ...
+    },
+    // ...
+  }
+}
+```
+
+主题变量配置通过修改 `NConfigProvider` 全局化配置组件的 `themeOverrides` 属性，对包裹的组件进行主题变量覆盖，更多信息参见[调整主题](https://www.naiveui.com/zh-CN/dark/docs/customize-theme)。
+
+在下面的主题配置结构图中，`composables/useTheme.ts` 组合式函数通过 `stores/preferences.ts` 的**主题颜色**（`themeColor`）和**主题模式**（`themeMode`）作为参数，传入获取主题配置方法，返回对应的主题变量数据。
+
+最后通过 `composables/useDiscreteApi.ts` 的 `getConfigProviderProps()` 方法返回对应的 `props` 数据传递给 `NConfigProvider` 全局化配置组件。
+
+![theme](../assets/theme.png)
+
+## 单独配置组件主题变量
+
+在一些布局中，我们可能需要单独配置组件的主题变量，比如 `NModal`、`NDrawer`、`NScrollbar` 等一些组件包裹的内容背景色与页面主体颜色不一样，特别是在 `dark` 暗色主题模式下，组件之间的颜色对比度不够明显，这时候组件主题变量需要单独配置。
+
+在 `composables/useComponentThemeOverrides` 组合式函数中，我们重新声明了一些组件的主题变量，在使用的时候再传入组件的 `themeOverrides` 属性进行主题变量覆盖。
+
+```ts [src/composables/useComponentThemeOverrides.ts]
+export function useComponentThemeOverrides() {
+  // 主布局下的滚动条主题变量
+  const scrollbarInMainLayout = computed<GlobalThemeOverrides['Scrollbar']>(() => {
+    return {
+      // ...
+    }
+  })
+
+  // 弹窗、抽屉等遮罩层下包裹的组件主题变量
+  const overlayThemeOverrides = computed<GlobalThemeOverrides>(() => {
+    return {
+      // ...
+    }
+  })
+}
+```
+
+在 `vue` 文件中使用
+
+```vue
+<script setup lang="ts">
+import { useComponentThemeOverrides } from '@/composables/useComponentThemeOverrides'
+
+const { scrollbarInMainLayout, overlayThemeOverrides } = useComponentThemeOverrides()
+</script>
+
+<template>
+  <!-- 覆盖滚动条主题变量 -->
+  <NScrollbar :theme-overrides="scrollbarInMainLayout" />
+
+  <!-- 使用 `NConfigProvider` 组件，覆盖包裹的组件主题变量 -->
+  <NConfigProvider :theme-overrides="overlayThemeOverrides">
+    <NDrawer>
+      <NButton />
+      <NInput />
+      <NSelect />
+    </NDrawer>
+  </NConfigProvider>
+</template>
+```
+
+![theme_overrides](../assets/theme_overrides.png)
+
+::: tip 有些组件的变量没有怎么办？
+
+目前 `Naive UI` 的组件暴露的样式变量基本够用，如现有的变量不满足组件自定义的样式需求，可以通过样式覆盖的方式来修改。
+
+```css
+.n-button {
+  text-align: left !important;
+  padding: 20px !important;
+}
+```
+
+:::

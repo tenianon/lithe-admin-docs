@@ -1,7 +1,7 @@
 /* code block */
 
 [class*='language-'] {
-  @apply relative my-4 overflow-hidden text-sm drop-shadow-xs;
+  @apply relative my-4 overflow-hidden drop-shadow-xs;
 }
 [class*='language-'] code {
   @apply block w-fit min-w-full px-5 leading-6;
@@ -30,6 +30,16 @@
   @apply bg-green-500/10 dark:bg-green-800/20;
   @apply before:content-['+'];
   @apply before:text-green-600 dark:before:text-green-700;
+}
+
+/* code focused line */
+
+[class*='language-']:hover .has-focused-lines .line:not(.has-focus) {
+  @apply blur-none;
+}
+
+[class*='language-'] .has-focused-lines .line:not(.has-focus) {
+  @apply blur-[2px] duration-300;
 }
 
 /* code copy */

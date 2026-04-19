@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Outline from '../../components/Outline.vue'
-import { useInjectionToRefs } from '../../composables/useInjection'
 import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
+import { useInjectionToRefs } from '../../composables/useInjection'
 
 const { showOutline } = useInjectionToRefs(mobileLayoutInjectionKey)
 </script>

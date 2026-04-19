@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { computed, watch } from 'vue'
 import { useData } from 'vitepress'
-import { useInjectionToRefs } from '../../composables/useInjection'
-import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
+import { computed } from 'vue'
+
 import IconSlash from '../../components/icons/IconSlash.vue'
+import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
+import { useInjectionToRefs } from '../../composables/useInjection'
+import { useLayout } from '../../composables/vitepress'
+
+const { hasAside } = useLayout()
 const { showMenu, showOutline } = useInjectionToRefs(mobileLayoutInjectionKey)
-const { page, theme } = useData()
+const { page, theme, frontmatter } = useData()
 
 const breadcrumbs = computed(() => {
   const sidebar = theme.value.sidebar
@@ -56,19 +60,14 @@ const handleOutlineClick = () => {
         @click="handleMenuClick"
         class="flex h-full items-center rounded px-1.5 transition-[background-color] duration-300 hover:bg-neutral-200 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-800"
       >
-        <template
-          v-for="(breadcrumb, index) in breadcrumbs"
-          :key="breadcrumb"
-        >
+        <template v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb">
           <span>{{ breadcrumb }}</span>
-          <IconSlash
-            class="w-4.5"
-            v-if="index < breadcrumbs.length - 1"
-          />
+          <IconSlash class="w-4.5" v-if="index < breadcrumbs.length - 1" />
         </template>
       </div>
     </div>
     <div
+      v-if="hasAside && frontmatter.outline !== 'page'"
       @click="handleOutlineClick"
       class="flex h-full items-center rounded px-1.5 transition-[background-color] duration-300 hover:bg-neutral-200 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-800"
     >

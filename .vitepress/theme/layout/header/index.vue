@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Search from './Search.vue'
-import ThemePicker from './ThemePicker.vue'
 import IconGithub from '../../components/icons/IconGithub.vue'
-import Translations from './Translations.vue'
-import Nav from './Nav.vue'
 import MobileBreadcrumb from '../mobile/MobileBreadcrumb.vue'
 import MobileNav from '../mobile/MobileNav.vue'
+import Nav from './Nav.vue'
+import Search from './Search.vue'
+import ThemePicker from './ThemePicker.vue'
+import Translations from './Translations.vue'
 </script>
 <template>
   <div

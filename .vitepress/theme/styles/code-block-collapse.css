@@ -1,0 +1,39 @@
+.code-block-collapse {
+  @apply relative my-4;
+}
+
+.code-block-collapse__state {
+  @apply sr-only;
+}
+
+.code-block-collapse__body {
+  @apply relative overflow-hidden;
+  max-height: 800px;
+}
+
+.code-block-collapse__body {
+  @apply rounded-b-lg;
+  @apply after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-24 after:bg-linear-to-b after:from-transparent after:via-neutral-100/92 after:to-neutral-100 after:transition-opacity;
+  @apply dark:after:from-transparent dark:after:via-neutral-850/92 dark:after:to-neutral-850;
+}
+
+.code-block-collapse__toggle {
+  @apply absolute bottom-4 left-1/2 h-5 w-10 -translate-x-1/2 cursor-pointer bg-current transition-colors dark:hover:bg-neutral-400;
+  @apply hover:bg-neutral-500 dark:hover:bg-neutral-450;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23000' d='M10.103 12.778L16.81 6.08a.69.69 0 0 1 .99.012a.726.726 0 0 1-.012 1.012l-7.203 7.193a.69.69 0 0 1-.985-.006L2.205 6.72a.727.727 0 0 1 0-1.01a.69.69 0 0 1 .99 0z'/%3E%3C/svg%3E");
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.code-block-collapse__state:checked ~ .code-block-collapse__body {
+  @apply max-h-none;
+  @apply after:hidden;
+}
+
+.code-block-collapse__state:checked ~ .code-block-collapse__toggle {
+  @apply bottom-8 rotate-180;
+}

@@ -27,15 +27,8 @@ const { showNav } = useInjectionToRefs(mobileLayoutInjectionKey)
       @click="showNav = !showNav"
       class="flex cursor-pointer items-center justify-center rounded-full p-1.5 transition-colors active:bg-neutral-200 active:text-primary-500 dark:active:bg-neutral-800 dark:active:text-primary-400"
     >
-      <span
-        v-if="!showNav"
-        class="iconify size-6 ph--list"
-      ></span>
-      <span
-        v-else
-        class="iconify size-6 ph--x"
-        >Menu</span
-      >
+      <span v-if="!showNav" class="iconify size-6 ph--list"></span>
+      <span v-else class="iconify size-6 ph--x">Menu</span>
     </button>
   </div>
 </template>

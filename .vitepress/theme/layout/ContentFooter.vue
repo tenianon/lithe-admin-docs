@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { useNavigatorLanguage } from '@vueuse/core'
 import { useData } from 'vitepress'
+import { computed, onMounted, shallowRef, useTemplateRef, watch, watchEffect } from 'vue'
 
 import { usePrevNext } from '../composables/vitepress'
-import { computed, onMounted, shallowRef, useTemplateRef, watch, watchEffect } from 'vue'
-import { useNavigatorLanguage } from '@vueuse/core'
 
 const prevNext = usePrevNext()
 
@@ -56,19 +56,11 @@ onMounted(() => {
       <span>{{ theme.doc?.text || theme.editLinkText || 'Edit on GitHub' }}</span>
     </a>
 
-    <div
-      v-if="datetime"
-      class="text-sm text-neutral-400 dark:text-neutral-500"
-    >
+    <div v-if="datetime" class="text-sm text-neutral-400 dark:text-neutral-500">
       <span
         >{{ theme.lastUpdated?.text || theme.lastUpdatedText || 'Last updated' }}&nbsp;-&nbsp;</span
       >
-      <time
-        ref="timeRef"
-        :datetime="isoDatetime"
-      >
-        {{ datetime }}</time
-      >
+      <time ref="timeRef" :datetime="isoDatetime"> {{ datetime }}</time>
     </div>
   </div>
   <div class="mt-6 flex justify-between gap-x-14 gap-y-4 max-sm:flex-col sm:items-center">

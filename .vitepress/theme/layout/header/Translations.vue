@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import { useLangs } from '../../composables/vitepress'
 import { ref, useTemplateRef } from 'vue'
+
 import { mediaQueryInjectionKey } from '../../components/Provide.vue'
 import { useInjectionToRefs } from '../../composables/useInjection'
+import { useLangs } from '../../composables/vitepress'
 
 const { isMaxSm } = useInjectionToRefs(mediaQueryInjectionKey)
 
@@ -37,10 +38,7 @@ const handleClick = () => {
     >
       <span class="iconify shrink-0 ph--translate"></span>
       <span class="flex-1">{{ currentLang.label }}</span>
-      <span
-        v-if="!isMaxSm"
-        class="iconify shrink-0 ph--caret-down"
-      ></span>
+      <span v-if="!isMaxSm" class="iconify shrink-0 ph--caret-down"></span>
     </div>
     <transition
       enter-from-class="scale-x-60 scale-y-0 opacity-0"
@@ -61,10 +59,7 @@ const handleClick = () => {
           {{ currentLang.label }}
         </div>
         <div class="my-1 border-t border-neutral-200 dark:border-neutral-750"></div>
-        <div
-          v-for="link in localeLinks"
-          :key="link.lang"
-        >
+        <div v-for="link in localeLinks" :key="link.lang">
           <a
             :href="link.link"
             class="mx-1 block rounded-lg px-2 py-1.5 transition-colors radius-squircle hover:bg-neutral-150/90 active:bg-neutral-150/90 dark:hover:bg-neutral-700/90 dark:active:bg-neutral-700/90"

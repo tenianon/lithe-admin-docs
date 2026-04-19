@@ -1,21 +1,24 @@
 <script setup lang="ts">
-import Header from './header/index.vue'
-import Aside from './Aside.vue'
-import Main from './Main.vue'
 import { useData } from 'vitepress'
-import Provide from '../components/Provide.vue'
-import { registerWatchers, useSidebarControl } from '../composables/vitepress'
 
 import topographySvg from '../assets/topography.svg'
+import Provide from '../components/Provide.vue'
+import { registerWatchers, useSidebarControl, useLayout } from '../composables/vitepress'
+import Aside from './Aside.vue'
+import Header from './header/index.vue'
+import Main from './Main.vue'
 import MobileLayout from './mobile/index.vue'
+
 const { frontmatter } = useData()
+const { hasAside } = useLayout()
 const { close } = useSidebarControl()
+
 registerWatchers({ closeSidebar: close })
 </script>
 <template>
   <Provide>
     <div
-      class="bg-neutral-50 [--header-height:calc(var(--spacing)*20)] max-lg:[--header-height:calc(var(--spacing)*22)] dark:bg-neutral-925"
+      class="bg-neutral-50 [--header-height:--spacing(20)] max-lg:[--header-height:--spacing(22)] dark:bg-neutral-925"
     >
       <div
         class="pointer-events-none fixed inset-0 size-full bg-neutral-100/90 mask-repeat dark:bg-neutral-900/50"
@@ -27,9 +30,9 @@ registerWatchers({ closeSidebar: close })
       <div
         class="relative grid min-h-dvh grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_4rem] grid-rows-[1fr_1.25rem_auto] pt-(--header-height) max-xl:grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_4rem] max-lg:grid-cols-1"
       >
-        <Aside v-if="frontmatter.outline === 'deep'" />
+        <Aside v-if="hasAside" />
         <div
-          v-if="frontmatter.outline === 'deep'"
+          v-if="hasAside && frontmatter.outline !== 'page'"
           class="pattern pattern-x sticky top-(--header-height) col-start-2 row-start-1 h-[calc(100dvh-var(--header-height))] bg-fixed max-lg:hidden"
         ></div>
         <Main />

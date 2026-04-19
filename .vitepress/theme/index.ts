@@ -16,14 +16,12 @@
 // } satisfies Theme
 
 import { h } from 'vue'
+
 import Layout from './layout/Layout.vue'
-
 import './main.css'
-
-import type { EnhanceAppContext } from 'vitepress'
 import type { Theme } from 'vitepress'
 
 export default {
   Layout: () => h(Layout, null, {}),
-  enhanceApp({ router }: EnhanceAppContext) {},
+  enhanceApp() {},
 } satisfies Theme

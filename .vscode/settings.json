@@ -1,4 +1,10 @@
 {
   "tailwindCSS.experimental.configFile": ".vitepress/theme/main.css",
-  "kiroAgent.configureMCP": "Disabled"
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "never",
+    "source.fixAll.oxc": "always"
+  },
+  "oxc.typeAware": true,
+  "oxc.useExecPath": true
 }

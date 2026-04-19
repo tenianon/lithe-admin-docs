@@ -8,48 +8,9 @@ export const localeConfig: LocaleConfig[string] = {
     editLinkText: 'Edit on GitHub',
     nav: [
       { text: 'Guide', link: '/guide/getting-started', activeMatch: '^/guide/' },
-      { text: 'Guide-Old', link: '/guide-old/getting-started', activeMatch: '^/guide-old/' },
-      { text: 'Demo', link: 'https://lithe-admin.havenovelgod.com', target: '_blank' },
-      { text: 'Sponsor', link: '/sponsor' },
+      { text: 'Demo', link: 'https://lithe-admin.vercel.app', target: '_blank' },
     ],
-    sidebar: {
-      '/guide/': {
-        base: '/guide/',
-        items: [
-          {
-            text: 'Guide',
-            items: [
-              { text: 'Lithe Admin Introduction', link: 'introduction' },
-              { text: 'Getting Started', link: 'getting-started' },
-            ],
-          },
-          {
-            text: 'Configuration',
-            items: [{ text: 'Menu Route', link: 'menu-route' }],
-          },
-        ],
-      },
-      '/guide-old/': {
-        base: '/guide-old/',
-        items: [
-          {
-            text: 'Guide',
-            items: [
-              { text: 'Lithe Admin Introduction', link: 'lithe-admin-introduce' },
-              { text: 'Getting Started', link: 'getting-started' },
-              { text: 'Directory Structure', link: 'directory-structure' },
-            ],
-          },
-          {
-            text: 'Configuration',
-            items: [
-              { text: 'Menu Route', link: 'menu-route' },
-              { text: 'Theme', link: 'theme' },
-            ],
-          },
-        ],
-      },
-    },
+    sidebar: {},
     outline: {
       label: 'Page Outline',
     },

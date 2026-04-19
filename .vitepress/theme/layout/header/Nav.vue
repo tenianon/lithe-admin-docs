@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
+
 import { isActive } from '../../composables/vitepress'
 
 const { theme, page } = useData()
 </script>
 <template>
   <div class="flex h-full items-center">
-    <div
-      class="relative h-full"
-      v-for="{ link, text, activeMatch, target } in theme.nav"
-    >
+    <div class="relative h-full" v-for="{ link, text, activeMatch, target } in theme.nav">
       <a
         :key="link"
         :href="link"

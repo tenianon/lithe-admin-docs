@@ -1,0 +1,3 @@
+.VPDoc hr {
+  @apply my-8 border-neutral-150 dark:border-neutral-825;
+}

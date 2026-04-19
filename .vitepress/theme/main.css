@@ -5,6 +5,7 @@
 @source './components/**/*.vue';
 @source './layout/**/*.vue';
 @source './**/*.ts';
+@source '../../content/**/*.md';
 
 @plugin '@iconify/tailwind4' {
   prefixes: ph;
@@ -23,10 +24,13 @@
 @import './styles/custom-block.css';
 @import './styles/list.css';
 @import './styles/code-block.css';
+@import './styles/code-block-collapse.css';
 @import './styles/code-block-tab.css';
 @import './styles/code-block-group.css';
 @import './styles/table.css';
 @import './styles/outline.css';
+@import './styles/hr.css';
+@import './styles/blockquote.css';
 
 @layer base {
   body {

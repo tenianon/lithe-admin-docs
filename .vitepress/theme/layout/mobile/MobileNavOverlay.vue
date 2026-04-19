@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { isActive } from '../../composables/vitepress'
 import { useData } from 'vitepress'
-import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
-import Translations from '../header/Translations.vue'
-import { useInjectionToRefs } from '../../composables/useInjection'
 import { computed, h } from 'vue'
+
+import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
+import { useInjectionToRefs } from '../../composables/useInjection'
+import { isActive } from '../../composables/vitepress'
 import ThemePicker from '../header/ThemePicker.vue'
+import Translations from '../header/Translations.vue'
 
 const { showNav, enableTransition } = useInjectionToRefs(mobileLayoutInjectionKey)
 
@@ -63,19 +64,9 @@ const onLeave = (el: Element, done: () => void) => {
       class="fixed inset-0 top-[calc(var(--header-height)-2.2rem)] z-10000 w-full bg-neutral-50 transition-[height] duration-300 lg:hidden dark:bg-neutral-925"
     >
       <div class="flex size-full flex-col items-center">
-        <TransitionGroup
-          @enter="onEnter"
-          @leave="onLeave"
-          :css="false"
-        >
-          <template
-            v-for="item in navItems"
-            :key="item.link || item.key"
-          >
-            <div
-              v-if="item.link"
-              class="relative w-full"
-            >
+        <TransitionGroup @enter="onEnter" @leave="onLeave" :css="false">
+          <template v-for="item in navItems" :key="item.link || item.key">
+            <div v-if="item.link" class="relative w-full">
               <a
                 :href="item.link"
                 :target="item.target"
@@ -90,11 +81,7 @@ const onLeave = (el: Element, done: () => void) => {
               </a>
             </div>
 
-            <component
-              v-else-if="item.component"
-              :is="item.component"
-              :key="item.key"
-            />
+            <component v-else-if="item.component" :is="item.component" :key="item.key" />
           </template>
         </TransitionGroup>
       </div>

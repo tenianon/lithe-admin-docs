@@ -22,9 +22,9 @@ export const mediaQueryInjectionKey: InjectionKey<Reactive<MediaQuery>> =
 </script>
 
 <script setup lang="ts">
-import { nextTick, provide, reactive, ref, watch } from 'vue'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { useRoute } from 'vitepress'
+import { nextTick, provide, reactive, ref, watch } from 'vue'
 
 const router = useRoute()
 

@@ -1,9 +1,13 @@
 <script lang="ts" setup>
 import { Content, useData } from 'vitepress'
-import ContentOutline from './ContentOutline.vue'
+
+import { useLayout } from '../composables/vitepress'
 import ContentFooter from './ContentFooter.vue'
+import ContentOutline from './ContentOutline.vue'
 
 const { frontmatter } = useData()
+
+const { hasAside } = useLayout()
 </script>
 
 <template>
@@ -15,9 +19,9 @@ const { frontmatter } = useData()
         <div class="doc-wrapper">
           <Content />
         </div>
-        <ContentFooter />
+        <ContentFooter v-if="hasAside && frontmatter.outline !== 'page'" />
       </div>
-      <ContentOutline v-if="frontmatter.outline === 'deep'" />
+      <ContentOutline v-if="hasAside && frontmatter.outline !== 'page'" />
     </div>
   </div>
 </template>

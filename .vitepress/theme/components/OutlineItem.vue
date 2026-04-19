@@ -21,10 +21,6 @@ const props = defineProps<{
     {{ props.header.title }}
   </a>
   <div v-if="props.header.children && props.header.children.length">
-    <OutlineItem
-      v-for="child in header.children"
-      :key="child.link"
-      :header="child"
-    />
+    <OutlineItem v-for="child in header.children" :key="child.link" :header="child" />
   </div>
 </template>

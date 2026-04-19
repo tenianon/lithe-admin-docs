@@ -8,9 +8,9 @@ export const localeConfig: LocaleConfig[string] = {
     editLinkText: '在 GitHub 上编辑此页',
     nav: [
       { text: '指南', link: '/guide/getting-started', activeMatch: '^/guide/' },
-      { text: '指南-旧版', link: '/guide-old/getting-started', activeMatch: '^/guide-old/' },
       { text: '演示地址', link: 'https://lithe-admin.havenovelgod.com', target: '_blank' },
-      { text: '赞助', link: '/sponsor' },
+      { text: '交流群', link: '/discussion' },
+      // { text: '赞助', link: '/sponsor' },
     ],
     sidebar: {
       '/guide/': {
@@ -19,32 +19,17 @@ export const localeConfig: LocaleConfig[string] = {
           {
             text: '指南',
             items: [
-              { text: 'Lithe Admin 介绍', link: 'introduction' },
+              // { text: 'Lithe Admin 介绍', link: 'introduction' },
               { text: '快速开始', link: 'getting-started' },
-            ],
-          },
-          {
-            text: '配置',
-            items: [{ text: '菜单路由', link: 'menu-route' }],
-          },
-        ],
-      },
-      '/guide-old/': {
-        base: '/guide-old/',
-        items: [
-          {
-            text: '指南',
-            items: [
-              { text: 'Lithe Admin 介绍', link: 'lithe-admin-introduce' },
-              { text: '快速开始', link: 'getting-started' },
-              { text: '项目结构', link: 'directory-structure' },
             ],
           },
           {
             text: '配置',
             items: [
               { text: '菜单路由', link: 'menu-route' },
-              { text: '主题', link: 'theme' },
+              { text: '图标', link: 'icon' },
+              // { text: '主题', link: 'theme' },
+              { text: '编写中...' },
             ],
           },
         ],

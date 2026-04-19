@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 import shikiDarkTheme from './theme/shiki/dark/shimmer-theme-dark-neutral-block.json'
 import { codeGroupMdPlugin } from './plugins/markdown-it/code-group'
 import { codeBlockTitleMdPlugin } from './plugins/markdown-it/code-block-title'
+import { codeBlockCollapseMdPlugin } from './plugins/markdown-it/code-block-collapse'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -15,7 +16,7 @@ export default defineConfig({
   locales: {
     root: {
       ...zhLocale,
-      link: '/'
+      link: '/',
     },
     en: {
       ...enLocale,
@@ -23,7 +24,7 @@ export default defineConfig({
     },
   },
   rewrites: {
-    'zh/:page*': ':page*'
+    'zh/:page*': ':page*',
   },
   lastUpdated: true,
   ignoreDeadLinks: true,
@@ -35,6 +36,7 @@ export default defineConfig({
     config(md) {
       md.use(codeGroupMdPlugin)
       md.use(codeBlockTitleMdPlugin)
+      md.use(codeBlockCollapseMdPlugin)
     },
   },
   vite: {

@@ -94,7 +94,7 @@
   @apply mb-0!;
 }
 
-.custom-block code {
+.custom-block code:not(pre code) {
   @apply dark:text-primary-300!;
   @apply dark:border-primary-650!;
   @apply dark:bg-primary-750!;
