@@ -29,7 +29,7 @@ import Translations from './Translations.vue'
           <ThemePicker />
           <div class="mx-4 h-5 border-l border-neutral-200 dark:border-neutral-800"></div>
           <a
-            href="https://github.com/tenianon/lithe-admin-docs"
+            href="https://github.com/tenianon/lithe-admin"
             target="_blank"
             class="size-5.5 shrink-0 transition-colors hover:text-primary-500 dark:hover:text-primary-400"
           >
