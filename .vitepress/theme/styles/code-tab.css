@@ -30,7 +30,7 @@
 }
 
 .code-tab-icon {
-  @apply mr-1 size-4.5 shrink-0 bg-cover bg-no-repeat;
+  @apply mr-1 size-4.5 shrink-0 bg-cover bg-no-repeat max-sm:size-4;
 }
 
 .code-tab-icon[data-icon*='.css'] {
@@ -75,7 +75,7 @@
 }
 
 .code-tab-text {
-  @apply truncate max-sm:[direction:rtl];
+  @apply truncate max-sm:text-sm max-sm:[direction:rtl];
 }
 
 /* code block title children */

@@ -233,7 +233,7 @@ interface MenuMixedOptions {
 
 ::: code-group
 
-```ts [ts]{resolveMenu()}
+```ts [ts]{resolveMenu}
 interface MenuProps['options'] {
   name: string
   icon?: () => VNodeChild
@@ -250,7 +250,7 @@ export function resolveMenu(
 ): NonNullable<MenuProps['options']> {}
 ```
 
-```ts [ts]{resolveRoute()}
+```ts [ts]{resolveRoute}
 interface RouteRecordRaw {
   path: string
   name: string
@@ -275,7 +275,7 @@ export function resolveRoute(options: MenuMixedOptions[]): RouteRecordRaw[] {}
 
 ## Vue Router meta 类型
 
-如需调整 Vue Router 路由 `meta` 的类型定义，可在 `src/router/helper.ts` 中修改 `CustomRouteMeta` 接口。
+如需调整 Vue Router 路由 `meta` 的类型定义，可在 `src/router/helper.ts` 中修改 `CustomRouteMeta` 类型。
 
 ```ts [src/router/helper.ts]
 export interface CustomRouteMeta {
@@ -291,7 +291,7 @@ export interface CustomRouteMeta {
 
 ## 路由守卫
 
-在 `src/router/guard.ts` 中，Lithe Admin 默认处理了路由守卫的一些常用逻辑处理。
+在 `src/router/guard.ts` 中，Lithe Admin 默认处理了路由守卫的一些基本逻辑处理。
 
 ```ts collapse [src/router/guard.ts]
 export function setupRouterGuard(router: Router) {
@@ -417,7 +417,7 @@ const routes: RouteRecordRaw[] = [
 
 ##### 菜单路由数据流图
 
-<div style="display: flex; justify-content: center;">
+<div style="margin-top: 1rem; display: flex; justify-content: center;">
   <img src="../assets/menu-route.png" alt="menu-route-" />
 </div>
 

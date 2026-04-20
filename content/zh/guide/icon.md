@@ -153,4 +153,4 @@ $ bun add @iconify/json
 
 > 静态图标通过 CSS 样式的 `svg` 图标数据渲染，基于 `@iconify/tailwind4` Tailwind CSS 插件，在 Tailwind CSS 扫描 `class` 类名时，会将命中的**图标类名**生成为对应的 CSS 样式。
 >
-> 与动态图标的区别是在加载页面的时候不会出现图标闪烁的问题。
+> 与**动态图标**的区别是，在加载页面的时候**不会出现图标闪烁**的问题。

@@ -4,10 +4,11 @@
   @apply my-4 rounded-lg border p-4 drop-shadow-xs radius-squircle;
   @apply border-neutral-200 dark:border-neutral-750;
   @apply bg-neutral-150 dark:bg-neutral-800;
+  @apply text-neutral-800 dark:text-neutral-325;
 }
 
 .custom-block:not(.details) p:not(.custom-block-title) {
-  @apply my-3 text-neutral-800 dark:text-neutral-325;
+  @apply my-3;
 }
 
 .custom-block .custom-block-title {
@@ -85,9 +86,15 @@
   @apply my-3 text-sm leading-5.5;
 }
 
-/* .custom-block p:not(.custom-block-title) code {
+.custom-block ol,
+.custom-block ul {
+  @apply text-sm;
+}
+
+.custom-block p:not(.custom-block-title) code,
+.custom-block code:not(div[class*='language-'] code) {
   @apply text-xs;
-} */
+}
 
 .custom-block :last-child {
   @apply mb-0!;

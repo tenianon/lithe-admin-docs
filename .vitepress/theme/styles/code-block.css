@@ -4,7 +4,7 @@
   @apply relative my-4 overflow-hidden drop-shadow-xs;
 }
 [class*='language-'] code {
-  @apply block w-fit min-w-full px-5 leading-6;
+  @apply block w-fit min-w-full px-5 leading-6 max-sm:text-sm;
 }
 
 [class*='language-'] pre {
