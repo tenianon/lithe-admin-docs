@@ -5,7 +5,7 @@
 @source './components/**/*.vue';
 @source './layout/**/*.vue';
 @source './**/*.ts';
-@source '../../content/**/*.md';
+@source '../../content/zh/discussion.md';
 
 @plugin '@iconify/tailwind4' {
   prefixes: ph;
@@ -25,7 +25,7 @@
 @import './styles/list.css';
 @import './styles/code-block.css';
 @import './styles/code-block-collapse.css';
-@import './styles/code-title.css';
+@import './styles/code-tab.css';
 @import './styles/code-group.css';
 @import './styles/table.css';
 @import './styles/outline.css';

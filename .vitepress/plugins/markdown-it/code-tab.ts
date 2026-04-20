@@ -20,14 +20,14 @@ function renderCodeTab(
   iconText: string | null,
 ) {
   const iconMarkup = iconText
-    ? `<span class="code-block-tab-icon" data-icon="${escapeHtml(iconText)}" aria-hidden="true"></span>`
+    ? `<span class="code-tab-icon" data-icon="${escapeHtml(iconText)}" aria-hidden="true"></span>`
     : ''
 
-  return `<div class="code-block-tab">
+  return `<div class="code-tab-wrapper">
         <div class="before-wing" aria-hidden="true"></div>
-        <div class="code-block-tab-x">
+        <div class="code-tab-x">
           ${iconMarkup}
-          <span class="code-block-tab-text">${escapeHtml(titleText)}</span>
+          <span class="code-tab-text">${escapeHtml(titleText)}</span>
         </div>
         <div class="after-wing" aria-hidden="true"></div>
       </div>`
@@ -67,7 +67,7 @@ export function mdPluginCodeTab(md: MarkdownIt) {
     const originalInfo = token.info
     token.info = stripCodeTitle(token.info)
 
-    const rendered = `<div class="code-block-tab-wrapper">
+    const rendered = `<div class="code-tab-container">
           ${renderCodeTab(
             md.utils.escapeHtml,
             titleText,

@@ -41,11 +41,11 @@ export function mdPluginCodeBlockCollapse(md: MarkdownIt) {
     const inputId = `code-block-collapse-${collapseId}`
 
     return `<div class="code-block-collapse">
-      <input id="${inputId}" class="code-block-collapse__state" type="checkbox">
-      <div class="code-block-collapse__body">
+      <input id="${inputId}" class="code-block-collapse-state" type="checkbox">
+      <div class="code-block-collapse-container">
         ${fenceHtml}
       </div>
-      <label class="code-block-collapse__toggle" for="${inputId}">
+      <label class="code-block-collapse-toggle" for="${inputId}">
       </label>
     </div>`
   }
