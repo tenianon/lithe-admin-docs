@@ -1,7 +1,7 @@
 /* table */
 
 .VPDoc .doc-wrapper table {
-  @apply my-4 w-full border-separate border-spacing-0 rounded-lg border border-neutral-150 text-left radius-squircle dark:border-neutral-825;
+  @apply my-4 w-full border-separate border-spacing-0 rounded-lg border border-neutral-150 text-left text-sm radius-squircle dark:border-neutral-825;
 }
 
 .VPDoc .doc-wrapper table th {

@@ -4,7 +4,7 @@ outline: [2, 4]
 
 # 菜单路由
 
-Lithe Admin 把菜单和路由的类型做了一点点的合并处理，使用 `MenuMixedOptions` 类型可以方便地进行菜单路由的数据配置。
+Lithe Admin 把菜单和路由的类型做了一些的合并处理，使用 `MenuMixedOptions` 类型可以方便地进行菜单路由的数据配置。
 
 ## 数据结构
 
@@ -227,13 +227,14 @@ interface MenuMixedOptions {
 }
 ```
 
-`MenuMixedOptions` 类型由 `NMenu` 菜单组件的 `options` prop 类型和 vue router 路由的 `RouteRecordRaw` 类型合并而来。
+`MenuMixedOptions` 结合了 `NMenu` 组件 `options` 属性的类型定义与 Vue Router 的 `RouteRecordRaw` 类型，用于统一描述菜单与路由相关的数据结构。
 
-在 `src/router/helper.ts` 中的 `resolveMenu` 和 `resolveRoute` 的方法用于解析提取菜单和路由的数据。
+在 `src/router/helper.ts` 中，`resolveMenu()` 和 `resolveRoute()` 的方法用于解析提取菜单和路由的数据。
 
-```ts
-// resolveMenu(): MenuProps['options']
-interface NMenuOptions {
+::: code-group
+
+```ts [ts]{resolveMenu()}
+interface MenuProps['options'] {
   name: string
   icon?: () => VNodeChild
   type?: 'group' | 'divider'
@@ -243,7 +244,13 @@ interface NMenuOptions {
   children?: NMenuOptions[]
 }
 
-// resolveRoute(): RouteRecordRaw[]
+export function resolveMenu(
+  options: MenuMixedOptions[],
+  parentDisabled = false,
+): NonNullable<MenuProps['options']> {}
+```
+
+```ts [ts]{resolveRoute()}
 interface RouteRecordRaw {
   path: string
   name: string
@@ -260,11 +267,15 @@ interface RouteRecordRaw {
   component: () => Promise<typeof import('*.vue')>
   children?: RouteRecordRaw[]
 }
+
+export function resolveRoute(options: MenuMixedOptions[]): RouteRecordRaw[] {}
 ```
+
+:::
 
 ## Vue Router meta 类型
 
-在 `src/router/helper.ts` 中，如果你需要对 vue router 的 meta 类型进行改动，可以修改 `CustomRouteMeta` 类型。
+如需调整 Vue Router 路由 `meta` 的类型定义，可在 `src/router/helper.ts` 中修改 `CustomRouteMeta` 接口。
 
 ```ts [src/router/helper.ts]
 export interface CustomRouteMeta {
@@ -351,11 +362,11 @@ export function setupRouterGuard(router: Router) {
 
 ::: tip 为什么直接添加 `layout` 路由，而不是遍历添加路由数据？
 
-大多数情况下，我们的路由数据都是在 `layout` 布局中，直接添加 `Layout` 一个路由数据，vue router 内部会自动处理 `children` 路由数据，使其数据结构更像是一颗树。
+大多数情况下，我们的路由数据都是在 `layout` 布局中，直接添加 `Layout` 一个路由数据，Vue Router 内部会自动处理 `children` 路由数据，使其数据结构更像是一颗树。
 
 当执行退出的操作时，只需要执行 `router.removeRoute('layout')` 即可删除 `layout` 路由以及其子路由数据。
 
-当然，这样的写法有一个小小小的缺点，在请求**返回的菜单数据不满足**的情况下，需要到 `src/stores/user.ts` 中添加对应的菜单数据。
+一般情况下，菜单数据由后端接口返回；如果新增页面对应的菜单配置尚未同步，可以先在 `src/stores/user.ts` 中临时补充对应的菜单数据。
 
 ```ts [src/stores/user.ts]
 token.value = res.data.token
@@ -370,7 +381,7 @@ user.value.menu.push({
 }) // [!code focus]
 ```
 
-因为在 `src/router/index.ts` 基础的路由数据配置中，不需要写 `layout` 的路由数据，否则它应该是这样的
+因为在 `src/router/index.ts` 基础的路由数据配置中，不需要写 `layout` 的路由数据，否则它应该是这样配置。
 
 ```ts [src/router/index.ts]
 const routes: RouteRecordRaw[] = [
@@ -414,14 +425,15 @@ const routes: RouteRecordRaw[] = [
 
 ::: tip 菜单的图标怎么用？
 
-菜单的图标支持**动态图标**和**静态图标**两种方式，一般的情况下菜单的数据是请求返回的，所以使用**动态图标**的写法，如果在菜单中使用**静态图标**，需要让 Tailwind CSS 扫描到对应的图标类名来生成对应的 `css` 样式，例如：
+菜单的图标支持[动态图标](/zh/guide/icon.html#动态图标)和[静态图标](/zh/guide/icon.html#静态图标)两种方式。菜单数据通常由后端接口返回，因此更适合使用动态图标。若要在菜单中使用静态图标，则需要让 Tailwind CSS 扫描到对应的图标类名，从而生成相应的 CSS 样式。例如：
 
-1. 在 `src/*` 下任意文件写有静态图标类名的文字（推荐写在注释中）
+1. 在 `src/*` 下任意文件中写有静态图标类名的文字（推荐写在注释中）
 
 ```ts
 /**
  * ph--acorn
  * ph--address-book
+ * icon-[ph--acorn]
  * ...
  */
 ```
@@ -429,8 +441,8 @@ const routes: RouteRecordRaw[] = [
 2. 一个不在页面上显示的元素
 
 ```html
-<span class="hidden ph--acorn ph--address-book"></span>
+<span class="hidden ph--acorn ph--address-book  icon-[ph--acorn]"></span>
 ```
 
-总之让 Tailwind CSS 扫描到对应的图标类名生成图标样式即可。
+只要让 Tailwind CSS 扫描到对应的**图标类名**，就会生成相应的图标样式。
 :::
