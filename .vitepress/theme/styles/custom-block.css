@@ -1,7 +1,7 @@
 /* custom block */
 
 .custom-block {
-  @apply my-4 rounded-lg border p-4 text-sm drop-shadow-xs radius-squircle;
+  @apply my-4 rounded-lg border p-4 drop-shadow-xs radius-squircle;
 
   @apply border-neutral-200 dark:border-neutral-750;
   @apply bg-neutral-150 dark:bg-neutral-800;
@@ -86,9 +86,9 @@
   @apply my-3 text-sm leading-5.5;
 }
 
-.custom-block p:not(.custom-block-title) code {
+/* .custom-block p:not(.custom-block-title) code {
   @apply text-xs;
-}
+} */
 
 .custom-block :last-child {
   @apply mb-0!;

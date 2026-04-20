@@ -2,7 +2,7 @@ import type MarkdownIt from 'markdown-it'
 
 const collapseFlagRE = /(^|\s)collapse(?=\s|$)/
 
-export function codeBlockCollapseMdPlugin(md: MarkdownIt) {
+export function mdPluginCodeBlockCollapse(md: MarkdownIt) {
   const fenceRule = md.renderer.rules.fence
   if (!fenceRule) return
 

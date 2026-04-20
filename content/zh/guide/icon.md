@@ -97,7 +97,7 @@ $ bun add @iconify/json
 
 ::: code-group
 
-```css [iconify 图标集前缀--图标名]
+```css {iconify 图标集前缀--图标名}
 .iconify {
   width: 1.2em;
   height: 1.2em;
@@ -122,7 +122,7 @@ $ bun add @iconify/json
 }
 ```
 
-```css [icon-[图标集前缀--图标名]]
+```css {icon-[图标集前缀--图标名]}
 .icon-\[ph--arrow-clockwise\] {
   width: 1.2em;
   height: 1.2em;

@@ -25,8 +25,8 @@
 @import './styles/list.css';
 @import './styles/code-block.css';
 @import './styles/code-block-collapse.css';
-@import './styles/code-block-tab.css';
-@import './styles/code-block-group.css';
+@import './styles/code-title.css';
+@import './styles/code-group.css';
 @import './styles/table.css';
 @import './styles/outline.css';
 @import './styles/hr.css';

@@ -1,11 +1,12 @@
-import { localeConfig as zhLocale } from '../content/zh/locale'
-import { localeConfig as enLocale } from '../content/en/locale'
-import { defineConfig } from 'vitepress'
 import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vitepress'
+
+import { localeConfig as enLocale } from '../content/en/locale'
+import { localeConfig as zhLocale } from '../content/zh/locale'
+import { mdPluginCodeBlockCollapse } from './plugins/markdown-it/code-block-collapse'
+import { mdPluginCodeGroup } from './plugins/markdown-it/code-group'
+import { mdPluginCodeTab } from './plugins/markdown-it/code-tab'
 import shikiDarkTheme from './theme/shiki/dark/shimmer-theme-dark-neutral-block.json'
-import { codeGroupMdPlugin } from './plugins/markdown-it/code-group'
-import { codeBlockTitleMdPlugin } from './plugins/markdown-it/code-block-title'
-import { codeBlockCollapseMdPlugin } from './plugins/markdown-it/code-block-collapse'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -34,9 +35,9 @@ export default defineConfig({
       dark: shikiDarkTheme as any,
     },
     config(md) {
-      md.use(codeGroupMdPlugin)
-      md.use(codeBlockTitleMdPlugin)
-      md.use(codeBlockCollapseMdPlugin)
+      md.use(mdPluginCodeGroup)
+      md.use(mdPluginCodeTab)
+      md.use(mdPluginCodeBlockCollapse)
     },
   },
   vite: {
