@@ -8,7 +8,7 @@ export const localeConfig: LocaleConfig[string] = {
     editLinkText: '在 GitHub 上编辑此页',
     nav: [
       { text: '指南', link: '/guide/getting-started', activeMatch: '^/guide/' },
-      { text: '演示地址', link: 'https://lithe-admin.havenovelgod.com', target: '_blank' },
+      { text: '演示地址', link: 'https://lithe-admin.vercel.app', target: '_blank' },
       { text: '交流群', link: '/discussion' },
       // { text: '赞助', link: '/sponsor' },
     ],
