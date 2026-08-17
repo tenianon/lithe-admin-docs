@@ -33,7 +33,6 @@ Lithe Admin 是一个轻量级、优雅的 Vue 3 后台管理模板，专注于�
 
 - 预览 [https://lithe-admin.vercel.app](https://lithe-admin.vercel.app)
 
-
 ## 源码地址
 
 - GitHub：[https://github.com/tenianon/lithe-admin](https://github.com/tenianon/lithe-admin)

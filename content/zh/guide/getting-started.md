@@ -14,7 +14,7 @@ Lithe Admin 使用 [Vite](https://cn.vitejs.dev) 作为开发和生产环境的�
 
 | 模版             | 源码地址                                                    | 预览地址                                                                          | 说明             |
 | ---------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------------- |
-| Lithe Admin      | [Github](https://github.com/tenianon/lithe-admin)           | [预览](https://lithe-admin.vercel.app)                                      | 默认模板         |
+| Lithe Admin      | [Github](https://github.com/tenianon/lithe-admin)           | [预览](https://lithe-admin.vercel.app)                                            | 默认模板         |
 | Lithe Admin Lite | [Github](https://github.com/tenianon/lithe-admin/tree/lite) | [预览(Preview 链接)](https://github.com/tenianon/lithe-admin/deployments/Preview) | 精简模板（推荐） |
 
 ::: code-group

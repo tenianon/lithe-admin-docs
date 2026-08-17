@@ -1,4 +1,4 @@
-import { namedMatchRegex, parseCodeTitle, stripCodeTitle } from './utils'
+import { namedMatchRegex, parseCodeTitle, stripCodeTitle } from './utils.ts'
 
 import type MarkdownIt from 'markdown-it'
 /**

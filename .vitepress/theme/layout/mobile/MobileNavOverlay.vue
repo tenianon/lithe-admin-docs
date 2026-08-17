@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
+import { useData, useRoute } from 'vitepress'
 import { computed, h } from 'vue'
 
 import { mobileLayoutInjectionKey } from '../../components/Provide.vue'
@@ -10,7 +10,8 @@ import Translations from '../header/Translations.vue'
 
 const { showNav, enableTransition } = useInjectionToRefs(mobileLayoutInjectionKey)
 
-const { theme, page } = useData()
+const { theme } = useData()
+const route = useRoute()
 
 const extraComponents = [
   {
@@ -72,7 +73,12 @@ const onLeave = (el: Element, done: () => void) => {
                 :target="item.target"
                 class="pattern-y flex h-full items-center bg-local px-8 py-3 transition-[color] hover:text-primary-500 dark:hover:text-primary-450"
                 :class="
-                  isActive(page.relativePath, item.activeMatch || item.link, !!item.activeMatch)
+                  isActive(
+                    route.data.relativePath,
+                    route.hash,
+                    item.activeMatch || item.link,
+                    !!item.activeMatch,
+                  )
                     ? 'pattern text-primary-500 [--pattern-border-color:var(--color-primary-200)] [--pattern-fg:var(--color-primary-200)]/55 dark:text-primary-450 dark:[--pattern-border-color:var(--color-primary-950)] dark:[--pattern-fg:var(--color-primary-950)]/55'
                     : 'border-transparent'
                 "

@@ -4,7 +4,7 @@ import {
   extractHtmlCodeTitle,
   parseCodeTitle,
   stripCodeTitle,
-} from './utils'
+} from './utils.ts'
 
 function renderCodeGroup(
   escapeHtml: MarkdownIt['utils']['escapeHtml'],
